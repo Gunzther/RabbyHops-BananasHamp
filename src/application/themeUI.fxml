@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="600.0" style="-fx-background-image: url('objects/themeBG.png');" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ThemeController">
+   <children>
+      <ImageView fx:id="whiteGif" fitHeight="170.0" fitWidth="300.0" layoutX="301.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="blackGif" fitHeight="171.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="white" mnemonicParsing="false" opacity="0.0" prefHeight="170.0" prefWidth="297.0" />
+      <Button fx:id="black" layoutX="303.0" mnemonicParsing="false" opacity="0.0" prefHeight="170.0" prefWidth="297.0" />
+      <ImageView fx:id="backImage" fitHeight="30.0" fitWidth="69.0" layoutX="263.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/back.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="back" layoutX="257.0" layoutY="136.0" mnemonicParsing="false" onAction="#handleBack" opacity="0.0" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: #dedede;" />
+   </children>
+</AnchorPane>
