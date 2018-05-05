@@ -71,7 +71,7 @@ public class HomeController {
 		else if(creditsStage && CreditsController.stage.isShowing()) CreditsController.stage.close();
 		stage = new Stage();
 		try {
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("setting	UI.fxml"));
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("settingUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
