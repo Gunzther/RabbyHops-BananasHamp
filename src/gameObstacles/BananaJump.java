@@ -1,32 +1,12 @@
 package gameObstacles;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 public class BananaJump extends Enemy{
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Rectangle getBound() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isOutOfScreen() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public static final int Y_LAND = 120;
 	
+	public BananaJump(Rabby rabby, int posX, BufferedImage image) {
+		super(rabby, posX, image);
+		super.setY_LAND(Y_LAND);
+	}
 }
