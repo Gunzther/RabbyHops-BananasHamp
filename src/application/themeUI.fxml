@@ -9,8 +9,8 @@
    <children>
       <ImageView fx:id="whiteGif" fitHeight="170.0" fitWidth="300.0" layoutX="301.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="blackGif" fitHeight="171.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="white" mnemonicParsing="false" opacity="0.0" prefHeight="170.0" prefWidth="297.0" />
-      <Button fx:id="black" layoutX="303.0" mnemonicParsing="false" opacity="0.0" prefHeight="170.0" prefWidth="297.0" />
+      <Button fx:id="white" mnemonicParsing="false" onAction="#handleWhite" opacity="0.0" prefHeight="170.0" prefWidth="297.0" />
+      <Button fx:id="black" layoutX="303.0" mnemonicParsing="false" onAction="#handleBlack" opacity="0.0" prefHeight="170.0" prefWidth="297.0" />
       <ImageView fx:id="backImage" fitHeight="30.0" fitWidth="69.0" layoutX="263.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../buttons/back.png" />

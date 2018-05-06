@@ -14,8 +14,7 @@ import javax.swing.JPanel;
 import gameObstacles.*;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
-	private static final long serialVersionUID = 1L;
-	public static boolean white;
+	public static String theme;
 	//game's state
 	private static final int START_GAME_STATE = 0;
 	private static final int GAME_PLAYING_STATE = 1;
@@ -36,12 +35,13 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	private BufferedImage gameOverButtonImage;
 
 	public GameScreen() {
+		theme = "b";
 		timeCheck = 0;
 		rabby = new Rabby();
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
-		rabby.setSpeedX(4);
-		replayButtonImage = getResourceImage("src/buttons/(b)replay.png");
-		gameOverButtonImage = getResourceImage("src/buttons/(b)gameover.png");
+		rabby.setSpeedX(8);
+		replayButtonImage = getResourceImage("replay.png");
+		gameOverButtonImage = getResourceImage("gameover.png");
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
 	}
 
@@ -68,7 +68,8 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void paint(Graphics g) {
-		g.setColor(Color.decode("#535353"));
+		if(theme.equalsIgnoreCase("b")) g.setColor(Color.decode("#535353"));
+		else g.setColor(Color.decode("#f7f7f7"));
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		switch (gameState) {
@@ -81,12 +82,12 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 			land.draw(g);
 			if(timeCheck >= 400) enemiesManager.draw(g);
 			rabby.draw(g);
-			g.setColor(Color.WHITE);
+			if(theme.equalsIgnoreCase("b")) g.setColor(Color.WHITE);
+			else g.setColor(Color.BLACK);
 			g.drawString("" + (rabby.score)/10, 530, 20);
 			if (gameState == GAME_OVER_STATE) {
 				g.drawImage(gameOverButtonImage, 200, 30, null);
 				g.drawImage(replayButtonImage, 283, 50, null);
-				
 			}
 			break;
 		}
@@ -171,7 +172,8 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		timeCheck = 0;
 	}
 	
-	public BufferedImage getResourceImage(String path) {
+	public BufferedImage getResourceImage(String filename) {
+		String path = String.format("src/buttons/(%s)%s", theme, filename);
 		BufferedImage img = null;
 		try {
 		    img = ImageIO.read(new File(path));

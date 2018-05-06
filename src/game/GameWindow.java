@@ -3,10 +3,7 @@ package game;
 import javax.swing.JFrame;
 
 public class GameWindow extends JFrame {
-	private static final long serialVersionUID = 1L;
-	
 	public static final int SCREEN_WIDTH = 600;
-	public static boolean whiteTheme;
 	private GameScreen gameScreen;
 	
 	public GameWindow() {
@@ -26,7 +23,7 @@ public class GameWindow extends JFrame {
 		gameScreen.startGame();
 	}
 	
-	public static void main(String args[]) {
-		(new GameWindow()).startGame();
-	}
+//	public static void main(String[]args) {
+//		(new GameWindow()).startGame();
+//	}
 }

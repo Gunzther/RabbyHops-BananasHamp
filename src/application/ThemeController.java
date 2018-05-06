@@ -2,6 +2,7 @@ package application;
 
 import java.io.File;
 
+import game.GameWindow;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
@@ -99,11 +100,17 @@ public class ThemeController {
 	}
 	
 	public void handleWhite() {
-		
+		ModeController.stage.close();
+		game.GameScreen.theme = "w";
+		GameWindow game = new GameWindow();
+		game.startGame();
 	}
 	
 	public void handleBlack() {
-		
+		ModeController.stage.close();
+		game.GameScreen.theme = "b";
+		GameWindow game = new GameWindow();
+		game.startGame();
 	}
 	
 }
