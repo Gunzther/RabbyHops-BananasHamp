@@ -15,6 +15,7 @@ import gameObstacles.*;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	private static final long serialVersionUID = 1L;
+	public static boolean white;
 	//game's state
 	private static final int START_GAME_STATE = 0;
 	private static final int GAME_PLAYING_STATE = 1;
@@ -38,7 +39,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		timeCheck = 0;
 		rabby = new Rabby();
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
-		rabby.setSpeedX(8);
+		rabby.setSpeedX(4);
 		replayButtonImage = getResourceImage("src/buttons/(b)replay.png");
 		gameOverButtonImage = getResourceImage("src/buttons/(b)gameover.png");
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
@@ -167,6 +168,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		enemiesManager.reset();
 		rabby.dead(false);
 		rabby.reset();
+		timeCheck = 0;
 	}
 	
 	public BufferedImage getResourceImage(String path) {
