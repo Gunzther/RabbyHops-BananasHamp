@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import game.GameWindow;
-
 /**
  * Create clouds which are background objects.
  * Update position of clouds and use iterator to loops background. 
