@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import game.GameScreen;
+
 /**
  * Read image from file(by using bufferedImage) and return an image object.
  * 
@@ -13,7 +15,8 @@ import javax.imageio.ImageIO;
  */
 public class Resource {
 	
-	public static BufferedImage getResourceImage(String path) {
+	public static BufferedImage getResourceImage(String filename) {
+		String path = String.format("src/objects/(%s)%s", GameScreen.theme, filename);
 		BufferedImage img = null;
 		try {
 		    img = ImageIO.read(new File(path));

@@ -27,9 +27,9 @@ public class Land {
 	 */
 	public Land(int width, Rabby mainCharacter) {
 		this.rabby = mainCharacter;
-		land1 = Resource.getResourceImage("src/objects/(b)land1.png");
-		land2 = Resource.getResourceImage("src/objects/(b)land2.png");
-		land3 = Resource.getResourceImage("src/objects/(b)land3.png");
+		land1 = Resource.getResourceImage("land1.png");
+		land2 = Resource.getResourceImage("land2.png");
+		land3 = Resource.getResourceImage("land3.png");
 		int numberOfImageLand = width / land1.getWidth() + 1;
 		listLand = new ArrayList<ImageLand>();
 		for(int i = 0; i < numberOfImageLand; i++) {

@@ -21,8 +21,8 @@ public class EnemiesManager {
 	
 	public EnemiesManager(Rabby mainCharacter) {
 		rand = new Random();
-		bananaJump = Resource.getResourceImage("src/objects/(b)banana1.png");
-		bananaDash = Resource.getResourceImage("src/objects/(b)banana2.png");
+		bananaJump = Resource.getResourceImage("banana1.png");
+		bananaDash = Resource.getResourceImage("banana2.png");
 		enemies = new ArrayList<Enemy>();
 		this.rabby = mainCharacter;
 		enemies.add(createEnemy());
