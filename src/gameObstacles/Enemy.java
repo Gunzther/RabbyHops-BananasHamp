@@ -59,6 +59,14 @@ public class Enemy {
 		}
 		return false;
 	}
+	
+	/** Check that enemy is at half of screen or not. */
+	public boolean isHalfOfScreen() {
+		if(posX == 400) {
+			return true;
+		}
+		return false;
+	}
 
 	/** Set y position of enemy without computing ui size. */
 	public void setY_LAND(int y_LAND) {
