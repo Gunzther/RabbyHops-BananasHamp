@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Create animation frame by frame from image in the list.
+ * Create animation frame by frame from images in the list.
  * 
  * @author Gunthee Tawewatmongkol
  */
