@@ -16,7 +16,7 @@ import gameObstacles.*;
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
 	//game's state
-	private static final int START_GAME_STATE = 0;
+//	private static final int START_GAME_STATE = 0;
 	private static final int GAME_PLAYING_STATE = 1;
 	private static final int GAME_OVER_STATE = 2;
 	//objects
@@ -29,13 +29,12 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 
 	private boolean isKeyPressed;
 
-	private int gameState = START_GAME_STATE;
+	private int gameState = GAME_PLAYING_STATE;
 	//button images
 	private BufferedImage replayButtonImage;
 	private BufferedImage gameOverButtonImage;
 
 	public GameScreen() {
-		theme = "b";
 		timeCheck = 0;
 		rabby = new Rabby();
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
@@ -73,9 +72,9 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		switch (gameState) {
-		case START_GAME_STATE:
-			rabby.draw(g);
-			break;
+//		case START_GAME_STATE:
+//			rabby.draw(g);
+//			break;
 		case GAME_PLAYING_STATE:
 		case GAME_OVER_STATE:
 			clouds.draw(g);
@@ -127,11 +126,11 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		if (!isKeyPressed) {
 			isKeyPressed = true;
 			switch (gameState) {
-			case START_GAME_STATE:
-				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					gameState = GAME_PLAYING_STATE;
-				}
-				break;
+//			case START_GAME_STATE:
+//				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+//					gameState = GAME_PLAYING_STATE;
+//				}
+//				break;
 			case GAME_PLAYING_STATE:
 				if (e.getKeyCode() == KeyEvent.VK_UP) {
 					rabby.jump();

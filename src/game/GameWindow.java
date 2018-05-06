@@ -8,8 +8,8 @@ public class GameWindow extends JFrame {
 	
 	public GameWindow() {
 		super("Rabby hops - Bananas Hamp");
-		setSize(SCREEN_WIDTH, 170);
-		setLocation(400, 200);
+		setSize(SCREEN_WIDTH, 180);
+		setLocation(420,450);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
@@ -23,7 +23,7 @@ public class GameWindow extends JFrame {
 		gameScreen.startGame();
 	}
 	
-	public static void main(String[]args) {
-		(new GameWindow()).startGame();
-	}
+//	public static void main(String[]args) {
+//		(new GameWindow()).startGame();
+//	}
 }

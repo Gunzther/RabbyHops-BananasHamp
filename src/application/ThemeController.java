@@ -100,14 +100,12 @@ public class ThemeController {
 	}
 	
 	public void handleWhite() {
-		ModeController.stage.close();
 		game.GameScreen.theme = "w";
 		GameWindow game = new GameWindow();
 		game.startGame();
 	}
 	
 	public void handleBlack() {
-		ModeController.stage.close();
 		game.GameScreen.theme = "b";
 		GameWindow game = new GameWindow();
 		game.startGame();
