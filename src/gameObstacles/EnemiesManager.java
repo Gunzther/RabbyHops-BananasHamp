@@ -25,8 +25,7 @@ public class EnemiesManager {
 		bananaDash = Resource.getResourceImage("src/objects/(b)banana2.png");
 		enemies = new ArrayList<Enemy>();
 		this.rabby = mainCharacter;
-		Enemy first = createEnemy();
-		enemies.add(first);
+		enemies.add(createEnemy());
 	}
 	
 	/** Make enemies move to the rabbit.
