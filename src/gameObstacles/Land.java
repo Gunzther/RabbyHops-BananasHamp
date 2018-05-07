@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Create path which are background objects.
@@ -31,7 +32,7 @@ public class Land {
 		land2 = Resource.getResourceImage("land2.png");
 		land3 = Resource.getResourceImage("land3.png");
 		int numberOfImageLand = width / land1.getWidth() + 1;
-		listLand = new ArrayList<ImageLand>();
+		listLand = new CopyOnWriteArrayList<ImageLand>();
 		for(int i = 0; i < numberOfImageLand; i++) {
 			ImageLand imageLand = new ImageLand();
 			imageLand.posX = i * land1.getWidth();
@@ -79,6 +80,7 @@ public class Land {
 	/** Create ui of path. */
 	public void draw(Graphics g) {
 		for(Iterator<ImageLand> iterator = listLand.iterator(); iterator.hasNext();) {
+			
 			ImageLand imgLand = iterator.next();
 			g.drawImage(imgLand.image, (int) imgLand.posX, LAND_POS, null);
 		}
