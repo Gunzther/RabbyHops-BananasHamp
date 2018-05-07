@@ -72,7 +72,7 @@ public class Rabby {
 				g.drawImage(jumping, (int) posX, (int) posY, null);
 				break;
 			case DASHING:
-				g.drawImage(dashing, (int) posX, (int) (posY + 20), null);
+				g.drawImage(dashing, (int) posX, (int) (posY + 18), null);
 				break;
 			case DEATH:
 				g.drawImage(death, (int) posX, (int) posY, null);
@@ -132,7 +132,7 @@ public class Rabby {
 		rabbyBound = new Rectangle();
 		if(state == DASHING) {
 			rabbyBound.x = (int) posX + 5;
-			rabbyBound.y = (int) posY + 20;
+			rabbyBound.y = (int) posY + 18;
 			rabbyBound.width = dashing.getWidth() - 10;
 			rabbyBound.height = dashing.getHeight();
 		} else {
