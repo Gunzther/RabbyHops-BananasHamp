@@ -141,13 +141,13 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 				if (e.getKeyCode() == KeyEvent.VK_W) {
 					rabby1.jump();
 				} 
-				else if (e.getKeyCode() == KeyEvent.VK_S) {
+				if (e.getKeyCode() == KeyEvent.VK_S) {
 					rabby1.dash(true);
 				}
-				else if (e.getKeyCode() == KeyEvent.VK_UP) {
+				if (e.getKeyCode() == KeyEvent.VK_UP) {
 					rabby2.jump();
 				}
-				else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+				if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 					rabby2.dash(true);
 				}
 				break;
@@ -164,10 +164,10 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 	public void keyReleased(KeyEvent e) {
 		isKeyPressed = false;
 		if (gameState == GAME_PLAYING_STATE) {
-			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			if (e.getKeyCode() == KeyEvent.VK_S) {
 				rabby1.dash(false);
 			}
-			else if (e.getKeyCode() == KeyEvent.VK_S) {
+			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 				rabby2.dash(false);
 			}
 		}
