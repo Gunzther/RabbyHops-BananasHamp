@@ -1,5 +1,7 @@
 package application;
 
+import java.awt.event.KeyEvent;
+
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
@@ -15,6 +17,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			initialize();
 			stage = primaryStage;
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
 			Scene scene = new Scene(root);
@@ -35,5 +38,14 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public void initialize() {
+		game.GameScreen.singleJump = KeyEvent.VK_UP;
+		game.GameScreen.singleDash = KeyEvent.VK_DOWN;
+		game.GameScreenTeam.playerJump1 = KeyEvent.VK_W;
+		game.GameScreenTeam.playerDash1 = KeyEvent.VK_S;
+		game.GameScreenTeam.playerJump2 = KeyEvent.VK_UP;
+		game.GameScreenTeam.playerDash2 = KeyEvent.VK_DOWN;
 	}
 }

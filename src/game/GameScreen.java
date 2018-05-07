@@ -37,7 +37,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static int singleJump;
 	public static int singleDash;
 
-	public GameScreen() {
+	public GameScreen() { 
 		timeCheck = 0;
 		rabby = new Rabby(50);
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
