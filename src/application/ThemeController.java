@@ -110,23 +110,25 @@ public class ThemeController {
 	
 	public void handleWhite() {
 		game.GameScreen.theme = "w";
-		if(mode.equalsIgnoreCase("single")) {
-			GameWindow game = new GameWindow();
-			game.startGame();	
+		game.GameScreenTeam.theme = "w";
+		if(mode.equalsIgnoreCase("multi")) {
+			System.out.println(mode);
 		}
 		else {
-			System.out.println(mode);
+			GameWindow game = new GameWindow();
+			game.startGame();
 		}
 	}
 	
 	public void handleBlack() {
 		game.GameScreen.theme = "b";
-		if(mode.equalsIgnoreCase("single")) {
-			GameWindow game = new GameWindow();
-			game.startGame();	
+		game.GameScreenTeam.theme = "b";
+		if(mode.equalsIgnoreCase("multi")) {
+			System.out.println(mode);
 		}
 		else {
-			System.out.println(mode);
+			GameWindow game = new GameWindow();
+			game.startGame();
 		}
 	}
 }

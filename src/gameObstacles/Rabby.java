@@ -34,8 +34,8 @@ public class Rabby {
 	private AudioClip jumpSound;
 	private AudioClip deadSound;
 	
-	public Rabby() {
-		posX = 50;
+	public Rabby(int xPos) {
+		posX = xPos;
 		posY = LAND_POSY;
 		rabbyBound = new Rectangle();
 		//downloading rabbit images

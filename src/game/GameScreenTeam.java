@@ -13,17 +13,17 @@ import javax.swing.JPanel;
 
 import gameObstacles.*;
 
-public class GameScreen extends JPanel implements Runnable, KeyListener {
+public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 	public static String theme;
-	public static int score = 0;
 	//game's state
 //	private static final int START_GAME_STATE = 0;
 	private static final int GAME_PLAYING_STATE = 1;
 	private static final int GAME_OVER_STATE = 2;
 	//objects
 	private Land land;
-	private Rabby rabby;
-	private EnemiesManager enemiesManager;
+	private Rabby rabby1;
+	private Rabby rabby2;
+	private EnemiesManagerTeam enemiesManagerTeam;
 	private Clouds clouds;
 	private Thread thread;
 	private int timeCheck;
@@ -35,14 +35,16 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	private BufferedImage replayButtonImage;
 	private BufferedImage gameOverButtonImage;
 
-	public GameScreen() {
+	public GameScreenTeam() {
 		timeCheck = 0;
-		rabby = new Rabby(50);
-		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
-		rabby.setSpeedX(8);
+		rabby1 = new Rabby(50);
+		rabby2 = new Rabby(290);
+		land = new Land(GameWindow.SCREEN_WIDTH, rabby1);
+		rabby1.setSpeedX(8);
+		rabby2.setSpeedX(8);
 		replayButtonImage = getResourceImage("replay.png");
 		gameOverButtonImage = getResourceImage("gameover.png");
-		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
+		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby1);
 	}
 
 	public void startGame() {
@@ -55,14 +57,15 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		if (gameState == GAME_PLAYING_STATE) {
 			clouds.update();
 			land.update();
-			rabby.update();
-			if(timeCheck == 400) enemiesManager = new EnemiesManager(rabby);
+			rabby1.update();
+			rabby2.update();
+			if(timeCheck == 400) enemiesManagerTeam = new EnemiesManagerTeam(rabby1, rabby2);
 			if(timeCheck >= 400) {
-				enemiesManager.update();
-				if (enemiesManager.isCollision()) {
-					if(rabby.score > score) score = rabby.getScore();
+				enemiesManagerTeam.update();
+				if (enemiesManagerTeam.isCollision()) {
 					gameState = GAME_OVER_STATE;
-					rabby.dead(true);
+					rabby1.dead(true);
+					rabby2.dead(true);
 				}
 			}
 		}
@@ -81,12 +84,12 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		case GAME_OVER_STATE:
 			clouds.draw(g);
 			land.draw(g);
-			if(timeCheck >= 400) enemiesManager.draw(g);
-			rabby.draw(g);
+			if(timeCheck >= 400) enemiesManagerTeam.draw(g);
+			rabby1.draw(g);
+			rabby2.draw(g);
 			if(theme.equalsIgnoreCase("b")) g.setColor(Color.WHITE);
 			else g.setColor(Color.BLACK);
-			g.drawString("" + (rabby.score)/10, 530, 20);
-			g.drawString("HI " + (score)/10, 450, 20);
+			g.drawString("" + (rabby1.score + rabby2.score)/10, 530, 20);
 			if (gameState == GAME_OVER_STATE) {
 				g.drawImage(gameOverButtonImage, 200, 30, null);
 				g.drawImage(replayButtonImage, 283, 50, null);
@@ -135,10 +138,17 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 //				}
 //				break;
 			case GAME_PLAYING_STATE:
-				if (e.getKeyCode() == KeyEvent.VK_UP) {
-					rabby.jump();
-				} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-					rabby.dash(true);
+				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+					rabby1.jump();
+				} 
+				else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+					rabby1.dash(true);
+				}
+				else if (e.getKeyCode() == KeyEvent.VK_UP) {
+					rabby2.jump();
+				}
+				else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+					rabby2.dash(true);
 				}
 				break;
 			case GAME_OVER_STATE:
@@ -155,7 +165,10 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		isKeyPressed = false;
 		if (gameState == GAME_PLAYING_STATE) {
 			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-				rabby.dash(false);
+				rabby1.dash(false);
+			}
+			else if (e.getKeyCode() == KeyEvent.VK_S) {
+				rabby2.dash(false);
 			}
 		}
 	}
@@ -166,9 +179,11 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	}
 
 	private void resetGame() {
-		enemiesManager.reset();
-		rabby.dead(false);
-		rabby.reset();
+		enemiesManagerTeam.reset();
+		rabby1.dead(false);
+		rabby2.dead(false);
+		rabby1.reset();
+		rabby2.reset();
 		timeCheck = 0;
 	}
 	
