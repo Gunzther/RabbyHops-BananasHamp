@@ -71,7 +71,7 @@ public class EnemiesManagerTeam {
 	/** Random type of enemy and create. */
 	private Enemy createEnemy() {
 		int type = rand.nextInt(3);
-		if(type == 1) {
+		if(type == 0) {
 			return new BananaDash(rabby1, 800, bananaDash);
 		} else {
 			return new BananaJump(rabby1, 800, bananaJump);
