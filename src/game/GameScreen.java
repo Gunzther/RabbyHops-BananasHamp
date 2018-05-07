@@ -15,6 +15,7 @@ import gameObstacles.*;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
+	public static int score = 0;
 	//game's state
 //	private static final int START_GAME_STATE = 0;
 	private static final int GAME_PLAYING_STATE = 1;
@@ -26,7 +27,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	private Clouds clouds;
 	private Thread thread;
 	private int timeCheck;
-
+	
 	private boolean isKeyPressed;
 
 	private int gameState = GAME_PLAYING_STATE;
@@ -59,6 +60,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 			if(timeCheck >= 400) {
 				enemiesManager.update();
 				if (enemiesManager.isCollision()) {
+					if(rabby.score > score) score = rabby.getScore();
 					gameState = GAME_OVER_STATE;
 					rabby.dead(true);
 				}
@@ -84,6 +86,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 			if(theme.equalsIgnoreCase("b")) g.setColor(Color.WHITE);
 			else g.setColor(Color.BLACK);
 			g.drawString("" + (rabby.score)/10, 530, 20);
+			g.drawString("HI " + (score)/10, 450, 20);
 			if (gameState == GAME_OVER_STATE) {
 				g.drawImage(gameOverButtonImage, 200, 30, null);
 				g.drawImage(replayButtonImage, 283, 50, null);

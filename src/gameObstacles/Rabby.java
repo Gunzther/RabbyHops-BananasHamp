@@ -153,4 +153,8 @@ public class Rabby {
 		score += 1;
 	}
 	
+	public int getScore() {
+		return this.score;
+	}
+	
 }
