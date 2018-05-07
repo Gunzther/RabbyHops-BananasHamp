@@ -17,7 +17,6 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
 	public static int score = 0;
 	//game's state
-//	private static final int START_GAME_STATE = 0;
 	private static final int GAME_PLAYING_STATE = 1;
 	private static final int GAME_OVER_STATE = 2;
 	//objects
@@ -34,6 +33,9 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	//button images
 	private BufferedImage replayButtonImage;
 	private BufferedImage gameOverButtonImage;
+	//player buttons control
+	public static int singleJump;
+	public static int singleDash;
 
 	public GameScreen() {
 		timeCheck = 0;
@@ -74,9 +76,6 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		switch (gameState) {
-//		case START_GAME_STATE:
-//			rabby.draw(g);
-//			break;
 		case GAME_PLAYING_STATE:
 		case GAME_OVER_STATE:
 			clouds.draw(g);
@@ -129,15 +128,10 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		if (!isKeyPressed) {
 			isKeyPressed = true;
 			switch (gameState) {
-//			case START_GAME_STATE:
-//				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-//					gameState = GAME_PLAYING_STATE;
-//				}
-//				break;
 			case GAME_PLAYING_STATE:
-				if (e.getKeyCode() == KeyEvent.VK_UP) {
+				if (e.getKeyCode() == singleJump) {
 					rabby.jump();
-				} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+				} else if (e.getKeyCode() == singleDash) {
 					rabby.dash(true);
 				}
 				break;
@@ -154,7 +148,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public void keyReleased(KeyEvent e) {
 		isKeyPressed = false;
 		if (gameState == GAME_PLAYING_STATE) {
-			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			if (e.getKeyCode() == singleDash) {
 				rabby.dash(false);
 			}
 		}

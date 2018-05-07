@@ -34,6 +34,11 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 	//button images
 	private BufferedImage replayButtonImage;
 	private BufferedImage gameOverButtonImage;
+	//player buttons control
+	public static int playerJump1;
+	public static int playerJump2;
+	public static int playerDash1;
+	public static int playerDash2;
 
 	public GameScreenTeam() {
 		timeCheck = 0;
@@ -138,16 +143,16 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 //				}
 //				break;
 			case GAME_PLAYING_STATE:
-				if (e.getKeyCode() == KeyEvent.VK_W) {
+				if (e.getKeyCode() == playerJump1) {
 					rabby1.jump();
 				} 
-				if (e.getKeyCode() == KeyEvent.VK_S) {
+				if (e.getKeyCode() == playerDash1) {
 					rabby1.dash(true);
 				}
-				if (e.getKeyCode() == KeyEvent.VK_UP) {
+				if (e.getKeyCode() == playerJump2) {
 					rabby2.jump();
 				}
-				if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+				if (e.getKeyCode() == playerDash2) {
 					rabby2.dash(true);
 				}
 				break;
@@ -164,10 +169,10 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 	public void keyReleased(KeyEvent e) {
 		isKeyPressed = false;
 		if (gameState == GAME_PLAYING_STATE) {
-			if (e.getKeyCode() == KeyEvent.VK_S) {
+			if (e.getKeyCode() == playerDash1) {
 				rabby1.dash(false);
 			}
-			if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			if (e.getKeyCode() == playerDash2) {
 				rabby2.dash(false);
 			}
 		}

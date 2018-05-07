@@ -19,16 +19,16 @@
             <Image url="@../objects/(w)dash.png" />
          </image>
       </ImageView>
-      <TextField fx:id="singleJump" layoutX="178.0" layoutY="79.0" prefHeight="27.0" prefWidth="101.0" text="W" />
+      <TextField fx:id="singleJump" layoutX="178.0" layoutY="79.0" prefHeight="27.0" prefWidth="101.0" promptText="default(up)" />
       <Label layoutX="138.0" layoutY="84.0" text="JUMP" />
-      <TextField fx:id="singleDash" layoutX="178.0" layoutY="122.0" prefHeight="27.0" prefWidth="101.0" text="S" />
+      <TextField fx:id="singleDash" layoutX="178.0" layoutY="122.0" prefHeight="27.0" prefWidth="101.0" promptText="default(down)" />
       <Label layoutX="138.0" layoutY="127.0" text="DASH" />
-      <TextField fx:id="playerOneJump" layoutX="354.0" layoutY="79.0" prefHeight="27.0" prefWidth="101.0" text="W" />
+      <TextField fx:id="playerOneJump" layoutX="354.0" layoutY="79.0" prefHeight="27.0" prefWidth="101.0" promptText="default(w)" />
       <Label layoutX="314.0" layoutY="84.0" text="JUMP" />
-      <TextField fx:id="playerOneDash" layoutX="354.0" layoutY="122.0" prefHeight="27.0" prefWidth="101.0" text="S" />
+      <TextField fx:id="playerOneDash" layoutX="354.0" layoutY="122.0" prefHeight="27.0" prefWidth="101.0" promptText="default(s)" />
       <Label layoutX="314.0" layoutY="127.0" text="DASH" />
-      <TextField fx:id="playerTwoJump" layoutX="463.0" layoutY="77.0" prefHeight="27.0" prefWidth="101.0" text="P" />
-      <TextField fx:id="playerTwoDash" layoutX="463.0" layoutY="122.0" prefHeight="27.0" prefWidth="101.0" text="L" />
+      <TextField fx:id="playerTwoJump" layoutX="463.0" layoutY="77.0" prefHeight="27.0" prefWidth="101.0" promptText="default(up)" />
+      <TextField fx:id="playerTwoDash" layoutX="463.0" layoutY="122.0" prefHeight="27.0" prefWidth="101.0" promptText="default(down)" />
       <Label layoutX="383.0" layoutY="60.0" text="player1" />
       <Label layoutX="491.0" layoutY="60.0" text="player2" />
       <Button defaultButton="true" layoutX="23.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleOK" prefHeight="53.0" prefWidth="54.0" text="OK" />
