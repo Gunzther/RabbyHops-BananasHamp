@@ -9,6 +9,7 @@ public class GameWindow extends JFrame {
 	public GameWindow() {
 		super();
 		setSize(SCREEN_WIDTH, 180);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocation(420,450);
 		setResizable(false);
 		

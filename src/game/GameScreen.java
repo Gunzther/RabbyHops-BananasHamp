@@ -146,8 +146,6 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 					gameState = GAME_PLAYING_STATE;
 					resetGame();
 				}
-				break;
-
 			}
 		}
 	}
