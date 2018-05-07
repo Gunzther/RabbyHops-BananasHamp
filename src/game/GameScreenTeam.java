@@ -138,10 +138,10 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 //				}
 //				break;
 			case GAME_PLAYING_STATE:
-				if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+				if (e.getKeyCode() == KeyEvent.VK_W) {
 					rabby1.jump();
 				} 
-				else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+				else if (e.getKeyCode() == KeyEvent.VK_S) {
 					rabby1.dash(true);
 				}
 				else if (e.getKeyCode() == KeyEvent.VK_UP) {
