@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
  * @author Gunthee Tawewatmongkol
  */
 public class BananaDash extends Enemy{
-	public static final int Y_LAND = 90;
+	public static final int Y_LAND = 85;
 	
 	public BananaDash(Rabby rabby, int posX, BufferedImage image) {
 		super(rabby, posX, image);
