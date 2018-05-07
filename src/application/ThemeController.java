@@ -30,6 +30,7 @@ public class ThemeController {
 	ImageView backImage;
 	
 	public static Stage stage;
+	public static String mode;
 	
 	File file1 = new File("src/objects/whiteGIF.gif");
 	File file2 = new File("src/objects/blackGIF.gif");
@@ -101,14 +102,23 @@ public class ThemeController {
 	
 	public void handleWhite() {
 		game.GameScreen.theme = "w";
-		GameWindow game = new GameWindow();
-		game.startGame();
+		if(mode.equalsIgnoreCase("single")) {
+			GameWindow game = new GameWindow();
+			game.startGame();	
+		}
+		else {
+			System.out.println(mode);
+		}
 	}
 	
 	public void handleBlack() {
 		game.GameScreen.theme = "b";
-		GameWindow game = new GameWindow();
-		game.startGame();
+		if(mode.equalsIgnoreCase("single")) {
+			GameWindow game = new GameWindow();
+			game.startGame();	
+		}
+		else {
+			System.out.println(mode);
+		}
 	}
-	
 }

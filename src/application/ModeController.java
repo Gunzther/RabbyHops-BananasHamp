@@ -111,14 +111,17 @@ public class ModeController {
 	}
 	
 	public void handleSingle() {
+		ThemeController.mode = "single";
 		createThemeStage();
 	}
 	
 	public void handleMuti() {
+		ThemeController.mode = "multi";
 		createThemeStage();
 	}
 	
 	public void handleTeam() {
+		ThemeController.mode = "team";
 		createThemeStage();
 	}
 	
