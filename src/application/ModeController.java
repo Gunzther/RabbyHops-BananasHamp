@@ -103,6 +103,7 @@ public class ModeController {
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setTitle("Rabby hops - Bananas Hamp");
 			stage.setScene(scene);
 			stage.show();
 		} catch(Exception e) {
