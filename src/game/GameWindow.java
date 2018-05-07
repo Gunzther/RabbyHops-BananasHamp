@@ -7,10 +7,9 @@ public class GameWindow extends JFrame {
 	private GameScreen gameScreen;
 	
 	public GameWindow() {
-		super("Rabby hops - Bananas Hamp");
+		super();
 		setSize(SCREEN_WIDTH, 180);
 		setLocation(420,450);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
 		gameScreen = new GameScreen();
