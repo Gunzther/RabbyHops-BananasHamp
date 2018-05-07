@@ -78,7 +78,8 @@ public class Land {
 	
 	/** Create ui of path. */
 	public void draw(Graphics g) {
-		for(ImageLand imgLand : listLand) {
+		for(Iterator<ImageLand> iterator = listLand.iterator(); iterator.hasNext();) {
+			ImageLand imgLand = iterator.next();
 			g.drawImage(imgLand.image, (int) imgLand.posX, LAND_POS, null);
 		}
 	}
