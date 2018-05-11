@@ -41,23 +41,14 @@ public class ModeController {
 	
 	public static boolean themeStage = false;
 	
-	File file1 = new File("src/buttons/bigBack1.png");
-	File file2 = new File("src/buttons/bigBack2.png");
-	File file3 = new File("src/buttons/singleMode1.png");
-	File file4 = new File("src/buttons/singleMode2.png");
-	File file5 = new File("src/buttons/multiMode1.png");
-	File file6 = new File("src/buttons/multiMode2.png");
-	File file7 = new File("src/buttons/teamMode1.png");
-	File file8 = new File("src/buttons/teamMode3.png");
-	
-	Image image1 = new Image(file1.toURI().toString());
-	Image image2 = new Image(file2.toURI().toString());
-	Image image3 = new Image(file3.toURI().toString());
-	Image image4 = new Image(file4.toURI().toString());
-	Image image5 = new Image(file5.toURI().toString());
-	Image image6 = new Image(file6.toURI().toString());
-	Image image7 = new Image(file7.toURI().toString());
-	Image image8 = new Image(file8.toURI().toString());
+	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/bigBack1.png"));
+	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/bigBack2.png"));
+	Image image3 = new Image(this.getClass().getResourceAsStream("/buttons/singleMode1.png"));
+	Image image4 = new Image(this.getClass().getResourceAsStream("/buttons/singleMode2.png"));
+	Image image5 = new Image(this.getClass().getResourceAsStream("/buttons/multiMode1.png"));
+	Image image6 = new Image(this.getClass().getResourceAsStream("/buttons/multiMode2.png"));
+	Image image7 = new Image(this.getClass().getResourceAsStream("/buttons/teamMode1.png"));
+	Image image8 = new Image(this.getClass().getResourceAsStream("/buttons/teamMode2.png"));
 	
 	/** Set mouse event that make Imageview change when mouse is entered buttons. */
 	@FXML

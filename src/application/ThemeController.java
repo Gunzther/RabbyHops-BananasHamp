@@ -34,17 +34,11 @@ public class ThemeController {
 	public static String mode;
 	public static boolean mutiSelectStage = false;
 	
-	File file1 = new File("src/objects/whiteGIF.gif");
-	File file2 = new File("src/objects/blackGIF.gif");
-	File file3 = new File("src/buttons/back.png");
-	File file4 = new File("src/buttons/(b)back.png");
-	File file5 = new File("src/objects/frame.png");
-	
-	Image image1 = new Image(file1.toURI().toString());
-	Image image2 = new Image(file2.toURI().toString());
-	Image image3 = new Image(file3.toURI().toString());
-	Image image4 = new Image(file4.toURI().toString());
-	Image image5 = new Image(file5.toURI().toString());
+	Image image1 = new Image(this.getClass().getResourceAsStream("/objects/whiteGIF.gif"));
+	Image image2 = new Image(this.getClass().getResourceAsStream("/objects/blackGIF.gif"));
+	Image image3 = new Image(this.getClass().getResourceAsStream("/buttons/back.png"));
+	Image image4 = new Image(this.getClass().getResourceAsStream("/buttons/(b)back.png"));
+	Image image5 = new Image(this.getClass().getResourceAsStream("/objects/frame.png"));
 	
 	@FXML
 	public void initialize() {
