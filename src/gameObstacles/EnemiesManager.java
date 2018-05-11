@@ -20,6 +20,7 @@ public class EnemiesManager {
 	private boolean half = false;
 	
 	public EnemiesManager(Rabby mainCharacter) {
+		Enemy.targetPos = 320;
 		rand = new Random();
 		bananaJump = Resource.getResourceImage("banana1.png");
 		bananaDash = Resource.getResourceImage("banana2.png");

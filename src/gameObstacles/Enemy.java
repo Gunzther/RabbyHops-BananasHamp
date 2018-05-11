@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
+import application.ThemeController;
+
 /**
  * Obstacles that always try to disturb player.
  * The player must time movements correctly in order to pass 
@@ -20,6 +22,8 @@ public class Enemy {
 	private BufferedImage image;
 	private Rabby rabby;
 	private Rectangle enemy;
+	
+	public static int targetPos;
 	
 	public Enemy(Rabby rabby, int posX, BufferedImage image) {
 		this.rabby = rabby;
@@ -62,7 +66,7 @@ public class Enemy {
 	
 	/** Check that enemy is at half of screen or not. */
 	public boolean isHalfOfScreen() {
-		if(posX == 400) {
+		if(posX == targetPos) {
 			return true;
 		}
 		return false;

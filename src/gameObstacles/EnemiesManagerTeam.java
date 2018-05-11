@@ -21,6 +21,7 @@ public class EnemiesManagerTeam {
 	private boolean half = false;
 	
 	public EnemiesManagerTeam(Rabby mainCharacter1, Rabby mainCharacter2) {
+		Enemy.targetPos = 380;
 		rand = new Random();
 		bananaJump = Resource.getResourceImage("banana1.png");
 		bananaDash = Resource.getResourceImage("banana2.png");
@@ -46,7 +47,7 @@ public class EnemiesManagerTeam {
 		Enemy enemy = enemies.get(0);
 		if(enemy.isHalfOfScreen()) {
 			Random rand2 = new Random();
-			if(rand2.nextInt(2) == 0) {
+			if(rand2.nextInt(2) == 1) {
 				enemies.add(createEnemy());
 				half = true;
 			}

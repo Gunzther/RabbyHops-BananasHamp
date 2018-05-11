@@ -28,8 +28,6 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 	private Thread thread;
 	private int timeCheck;
 	
-	private boolean isKeyPressed;
-
 	private int gameState = GAME_PLAYING_STATE;
 	//button images
 	private BufferedImage replayButtonImage;
@@ -45,8 +43,8 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 		rabby1 = new Rabby(50);
 		rabby2 = new Rabby(290);
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby1);
-		rabby1.setSpeedX(8);
-		rabby2.setSpeedX(8);
+		rabby1.setSpeedX(6);
+		rabby2.setSpeedX(6);
 		replayButtonImage = getResourceImage("replay.png");
 		gameOverButtonImage = getResourceImage("gameover.png");
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby1);
@@ -82,9 +80,6 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		switch (gameState) {
-//		case START_GAME_STATE:
-//			rabby.draw(g);
-//			break;
 		case GAME_PLAYING_STATE:
 		case GAME_OVER_STATE:
 			clouds.draw(g);
@@ -134,40 +129,31 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (!isKeyPressed) {
-			isKeyPressed = true;
-			switch (gameState) {
-//			case START_GAME_STATE:
-//				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-//					gameState = GAME_PLAYING_STATE;
-//				}
-//				break;
-			case GAME_PLAYING_STATE:
-				if (e.getKeyCode() == playerJump1) {
-					rabby1.jump();
-				} 
-				if (e.getKeyCode() == playerDash1) {
-					rabby1.dash(true);
-				}
-				if (e.getKeyCode() == playerJump2) {
-					rabby2.jump();
-				}
-				if (e.getKeyCode() == playerDash2) {
-					rabby2.dash(true);
-				}
-				break;
-			case GAME_OVER_STATE:
-				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					gameState = GAME_PLAYING_STATE;
-					resetGame();
-				}
+		switch (gameState) {
+		case GAME_PLAYING_STATE:
+			if (e.getKeyCode() == playerJump1) {
+				rabby1.jump();
+			} 
+			if (e.getKeyCode() == playerDash1) {
+				rabby1.dash(true);
+			}
+			if (e.getKeyCode() == playerJump2) {
+				rabby2.jump();
+			}
+			if (e.getKeyCode() == playerDash2) {
+				rabby2.dash(true);
+			}
+			break;
+		case GAME_OVER_STATE:
+			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+				gameState = GAME_PLAYING_STATE;
+				resetGame();
 			}
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		isKeyPressed = false;
 		if (gameState == GAME_PLAYING_STATE) {
 			if (e.getKeyCode() == playerDash1) {
 				rabby1.dash(false);

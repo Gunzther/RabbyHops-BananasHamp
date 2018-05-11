@@ -1,6 +1,10 @@
 package application;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.net.URL;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -13,10 +17,17 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	
 	public static Stage stage;
+	public static AudioClip hottoDogu;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			File soundFile = new File("src/sound/hottoDogu.wav");
+			URL url = soundFile.toURI().toURL();
+			if(url != null) {
+				System.out.println("not null");
+				hottoDogu =  Applet.newAudioClip(url);
+			}
 			initialize();
 			stage = primaryStage;
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
