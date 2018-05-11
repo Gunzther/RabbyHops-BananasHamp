@@ -32,6 +32,7 @@ public class ThemeController {
 	
 	public static Stage stage;
 	public static String mode;
+	public static boolean mutiSelectStage = false;
 	
 	File file1 = new File("src/objects/whiteGIF.gif");
 	File file2 = new File("src/objects/blackGIF.gif");
@@ -112,7 +113,24 @@ public class ThemeController {
 		game.GameScreen.theme = "w";
 		game.GameScreenTeam.theme = "w";
 		if(mode.equalsIgnoreCase("multi")) {
-			System.out.println(mode);
+			ModeController.stage.close();
+			try {
+				stage = new Stage();
+				Parent root = (Parent)FXMLLoader.load(getClass().getResource("multiplayerSelectionUI.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				stage.setTitle("Rabby hops - Bananas Hamp");
+				stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+					@Override
+					public void handle(WindowEvent event) {
+						System.exit(0);
+					}
+				});
+				stage.setScene(scene);
+				stage.show();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		else {
 			GameWindow game = new GameWindow();
@@ -124,7 +142,24 @@ public class ThemeController {
 		game.GameScreen.theme = "b";
 		game.GameScreenTeam.theme = "b";
 		if(mode.equalsIgnoreCase("multi")) {
-			System.out.println(mode);
+			ModeController.stage.close();
+			try {
+				stage = new Stage();
+				Parent root = (Parent)FXMLLoader.load(getClass().getResource("multiplayerSelectionUI.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				stage.setTitle("Rabby hops - Bananas Hamp");
+				stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+					@Override
+					public void handle(WindowEvent event) {
+						System.exit(0);
+					}
+				});
+				stage.setScene(scene);
+				stage.show();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		else {
 			GameWindow game = new GameWindow();

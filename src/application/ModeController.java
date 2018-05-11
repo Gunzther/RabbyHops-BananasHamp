@@ -99,6 +99,7 @@ public class ModeController {
 	public void handleBack() {
 		if (HomeController.stage.isShowing()) HomeController.stage.close();
 		else if (themeStage && ThemeController.stage.isShowing()) ThemeController.stage.close();
+		else if (ThemeController.mutiSelectStage && MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
 		try {
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
@@ -136,6 +137,7 @@ public class ModeController {
 	public void createThemeStage() {
 		if (HomeController.stage.isShowing()) HomeController.stage.close();
 		else if (themeStage && ThemeController.stage.isShowing()) ThemeController.stage.close();
+		else if (ThemeController.mutiSelectStage && MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
 		try {
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("themeUI.fxml"));
