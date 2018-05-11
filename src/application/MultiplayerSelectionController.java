@@ -24,14 +24,16 @@ public class MultiplayerSelectionController {
 	@FXML
 	ImageView backImage;
 	@FXML
+	ImageView createRoomImage;
+	@FXML
 	TextField gameID;
-	
+
 	public static Stage stage;
-	File file1 = new File("src/buttons/BackToMode1.png");
-	File file2 = new File("src/buttons/BackToMode2.png");
 	
-	Image image1 = new Image(file1.toURI().toString());
-	Image image2 = new Image(file2.toURI().toString());
+	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode1.png"));
+	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode2.png"));
+	Image image3 = new Image(this.getClass().getResourceAsStream("/buttons/createNewRoom1.png"));
+	Image image4 = new Image(this.getClass().getResourceAsStream("/buttons/createNewRoom2.png"));
 	
 	@FXML
 	public void initialize() {
@@ -41,6 +43,7 @@ public class MultiplayerSelectionController {
 			public void handle(MouseEvent event) {
 				EventTarget target = event.getTarget();
 				if(target == back) backImage.setImage(image2);
+				else if(target == createRoom) createRoomImage.setImage(image4);
 			}
 		};
 		EventHandler<MouseEvent> event2 = new EventHandler<MouseEvent>() {
@@ -48,10 +51,13 @@ public class MultiplayerSelectionController {
 			public void handle(MouseEvent event) {
 				EventTarget target = event.getTarget();
 				if(target == back) backImage.setImage(image1);
+				else if(target == createRoom) createRoomImage.setImage(image3);
 			}
 		};
 		back.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
 		back.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		createRoom.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		createRoom.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
 	public void handleBack() {

@@ -10,18 +10,23 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="600.0" style="-fx-background-image: url('objects/BananaBG.png');" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MultiplayerSelectionController">
    <children>
+      <ImageView fx:id="createRoomImage" fitHeight="38.0" fitWidth="480.0" layoutX="107.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/createNewRoom1.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="backImage" fitHeight="170.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../buttons/BackToMode1.png" />
          </image>
       </ImageView>
-      <TextField fx:id="gameID" alignment="CENTER" focusTraversable="false" layoutX="184.0" layoutY="33.0" prefHeight="27.0" prefWidth="233.0" promptText="Game PIN" />
-      <Label layoutX="293.0" layoutY="75.0" text="or">
+      <TextField fx:id="gameID" alignment="CENTER" focusTraversable="false" layoutX="215.0" layoutY="35.0" prefHeight="32.0" prefWidth="256.0" promptText="Game PIN" />
+      <Label layoutX="335.0" layoutY="76.0" text="or">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="createRoom" layoutX="237.0" layoutY="112.0" mnemonicParsing="false" text="Create new game" />
       <Button fx:id="back" layoutX="1.0" mnemonicParsing="false" onAction="#handleBack" opacity="0.0" prefHeight="170.0" prefWidth="85.0" style="-fx-background-color: #f7f7f7;" />
+      <Button fx:id="createRoom" layoutX="105.0" layoutY="107.0" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="476.0" />
    </children>
 </AnchorPane>
