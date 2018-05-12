@@ -4,8 +4,6 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import application.ThemeController;
-
 /**
  * Obstacles that always try to disturb player.
  * The player must time movements correctly in order to pass 
