@@ -92,7 +92,7 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 			g.drawString("" + (rabby1.score + rabby2.score)/10, 530, 20);
 			if (gameState == GAME_OVER_STATE) {
 				g.drawImage(gameOverButtonImage, 200, 30, null);
-				g.drawImage(replayButtonImage, 283, 50, null);
+				g.drawImage(replayButtonImage, 283, 60, null);
 			}
 			break;
 		}
