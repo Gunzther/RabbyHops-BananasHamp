@@ -1,7 +1,5 @@
 package application;
 
-import java.io.File;
-
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
@@ -29,6 +27,7 @@ public class MultiplayerSelectionController {
 	TextField gameID;
 
 	public static Stage stage;
+	public static boolean playerNumberStage = false;
 	
 	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode1.png"));
 	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode2.png"));
@@ -61,10 +60,33 @@ public class MultiplayerSelectionController {
 	}
 	
 	public void handleBack() {
-		ThemeController.stage.close();
+		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
+		else if(playerNumberStage && playerNumberController.stage.isShowing()) playerNumberController.stage.close();
 		try {
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("modeSelection.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setTitle("Rabby hops - Bananas Hamp");
+			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				@Override
+				public void handle(WindowEvent event) {
+					System.exit(0);
+				}
+			});
+			stage.setScene(scene);
+			stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void handleCreate() {
+		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
+		else if(playerNumberStage && playerNumberController.stage.isShowing()) playerNumberController.stage.close();
+		try {
+			stage = new Stage();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("playerNumberUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setTitle("Rabby hops - Bananas Hamp");

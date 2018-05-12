@@ -1,7 +1,5 @@
 package application;
 
-import java.io.File;
-
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;

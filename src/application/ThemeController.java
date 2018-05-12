@@ -1,7 +1,5 @@
 package application;
 
-import java.io.File;
-
 import game.GameWindow;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;

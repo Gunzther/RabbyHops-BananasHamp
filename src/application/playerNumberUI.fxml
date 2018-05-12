@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="600.0" style="-fx-background-color: #535353;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.playerNumberController">
+   <children>
+      <ImageView fx:id="fourPlayerImage" fitHeight="95.0" fitWidth="85.0" layoutX="437.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/4players.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="threePlayerImage" fitHeight="95.0" fitWidth="85.0" layoutX="301.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/3players.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="twoPlayerImage" fitHeight="93.0" fitWidth="85.0" layoutX="164.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/2players.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="516.0" layoutX="85.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/createNewRoom(bg).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backImage" fitHeight="170.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/backLeft2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" opacity="0.0" prefHeight="170.0" prefWidth="85.0" style="-fx-background-color: #f7f7f7;" />
+      <Button fx:id="twoPlayer" layoutX="164.0" layoutY="62.0" mnemonicParsing="false" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
+      <Button fx:id="threePlayer" layoutX="300.0" layoutY="62.0" mnemonicParsing="false" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
+      <Button fx:id="fourPlayer" layoutX="437.0" layoutY="62.0" mnemonicParsing="false" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
+   </children>
+</AnchorPane>
