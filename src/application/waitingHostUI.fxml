@@ -40,5 +40,6 @@
             <Image url="@../buttons/waiting.gif" />
          </image>
       </ImageView>
+      <Button layoutX="475.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleOpenRoom" prefHeight="38.0" prefWidth="94.0" text="Open Room" />
    </children>
 </AnchorPane>

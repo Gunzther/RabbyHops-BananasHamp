@@ -61,7 +61,7 @@ public class MultiplayerSelectionController {
 	
 	public void handleBack() {
 		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
-		else if(playerNumberStage && playerNumberController.stage.isShowing()) playerNumberController.stage.close();
+		else if(playerNumberStage && PlayerNumberController.stage.isShowing()) PlayerNumberController.stage.close();
 		try {
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("modeSelection.fxml"));
@@ -83,7 +83,7 @@ public class MultiplayerSelectionController {
 	
 	public void handleCreate() {
 		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
-		else if(playerNumberStage && playerNumberController.stage.isShowing()) playerNumberController.stage.close();
+		else if(playerNumberStage && PlayerNumberController.stage.isShowing()) PlayerNumberController.stage.close();
 		try {
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("playerNumberUI.fxml"));

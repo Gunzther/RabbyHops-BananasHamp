@@ -27,48 +27,27 @@ public class WaitingHostController {
 	
 	private int portNumber;
 	private int playerNumber;
+	private String ip;
 	private Server server;
-	private Client client;
 	public static int playerNumberPb;
 	public static Stage stage;
+	public int number = 10000;
 	
-	public WaitingHostController(int portNumber, int playerNumber) {
-		this.portNumber = portNumber;
-		this.playerNumber = playerNumber;
-		this.server = new Server(this.portNumber, this.playerNumber);
+	public WaitingHostController() {
+		this.portNumber = number;
+		this.playerNumber = playerNumberPb;
+		server = new Server(this.portNumber, this.playerNumber);
 		System.out.println("new server");
-		openWaitingHostScreen();
-		initialize();
+		number++;
 	}
-	
+
+	@FXML
 	public void initialize() {
-		System.out.println("init");
-		playerNumberPb = playerNumber;
-		System.out.println("player number: "+playerNumber);
-		serverStart();
-		String ip = getHostNumber();
-		System.out.println("ip: "+ip);
-//		ipNumber.setText(ip);
-		if(ip == null) System.out.println("null");
-//		portNumberUI.setText(String.format("%d", this.portNumber));
-		System.out.println("port: "+ this.portNumber);
-		client = new Client(ip, this.portNumber);
-		int clientNumber = this.server.getNumberOfClients();
-		System.out.println("num: "+clientNumber);
-		try {
-			client.openConnection();
-			while(client.isConnected()) {
-				int nowClient = this.server.getNumberOfClients();
-				if(nowClient != clientNumber) {
-					clientNumber = nowClient;
-//					waitingMassege.setText(String.format("WAITING. . . [ %d ] PLAYERS", playerNumber-clientNumber));
-					if(playerNumber-clientNumber == 0) break;
-				}
-			}
-//			waitingMassege.setText("PLAYING. . .");
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
+		ip = getHostNumber();
+		ipNumber.setText(ip);
+		portNumberUI.setText(String.format("%d", this.portNumber));
+		if(waitingMassege == null) System.out.println("null");
+		waitingMassege.setText(String.format("WAITING. . . [ %d ] PLAYERS", this.playerNumber));
 	}
 	
 	public String getHostNumber() {
@@ -89,6 +68,27 @@ public class WaitingHostController {
 		 return ip;
 	}
 	
+	public void handleOpenRoom() {
+		serverStart(server);
+		Client client = new Client(ip, portNumber);
+		int clientNumber = server.getNumberOfClients();
+		System.out.println("num: "+clientNumber);
+		try {
+			client.openConnection();
+			while(client.isConnected()) {
+				int nowClient = server.getNumberOfClients();
+				if(nowClient != clientNumber) {
+					clientNumber = nowClient;
+					waitingMassege.setText(String.format("WAITING. . . [ %d ] PLAYERS", playerNumber-clientNumber));
+					if(playerNumber-clientNumber == 0) break;
+				}
+			}
+			waitingMassege.setText("PLAYING. . .");
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
 	public void handleCloseRoom() {
 		serverStop();
 		//back to mode selection
@@ -98,7 +98,7 @@ public class WaitingHostController {
 		server.sendToAllClients("ready");
 	}
 	
-	public void serverStart() {
+	public void serverStart(Server server) {
 		try {
 			server.listen();
 		} catch (IOException e) {
@@ -112,27 +112,6 @@ public class WaitingHostController {
 		try {
 			this.server.close();
 		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void openWaitingHostScreen() {
-//		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
-		try {
-			stage = new Stage();
-			Parent root = (Parent)FXMLLoader.load(getClass().getResource("waitingHostUI2.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			stage.setTitle("Rabby hops - Bananas Hamp");
-			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-				@Override
-				public void handle(WindowEvent event) {
-					System.exit(0);
-				}
-			});
-			stage.setScene(scene);
-			stage.show();
-		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

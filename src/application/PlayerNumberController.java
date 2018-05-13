@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-public class playerNumberController {
+public class PlayerNumberController {
 	@FXML
 	Button back;
 	@FXML
@@ -32,7 +32,6 @@ public class playerNumberController {
 	ImageView fourPlayerImage;
 	
 	public static Stage stage;
-	private int portNumber = 10000;
 	
 	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/backLeft1.png"));
 	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/backLeft2.png"));
@@ -99,18 +98,43 @@ public class playerNumberController {
 	}
 	
 	public void handleTwoPlayer() {
-		new WaitingHostController(portNumber, 2);
-		portNumber++;
+		WaitingHostController.playerNumberPb = 2;
+		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
+		openWaitingHostScreen();
 	}
 	
 	public void handleThreePlayer() {
-		new WaitingHostController(portNumber, 3);
-		portNumber++;
+//		new WaitingHostController(portNumber, 3);
+		
 	}
 	
 	public void handleFourPlayer() {
-		new WaitingHostController(portNumber, 4);
-		portNumber++;
+//		new WaitingHostController(portNumber, 4);
+		
+	}
+	
+	public void openWaitingHostScreen() {
+		try {
+			System.out.println("เข้าแล้ว");
+			stage = new Stage();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("waitingHostUI.fxml"));
+			System.out.println("root");
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setTitle("Rabby hops - Bananas Hamp");
+			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				@Override
+				public void handle(WindowEvent event) {
+					System.exit(0);
+				}
+			});
+			stage.setScene(scene);
+			System.out.println("set scene");
+			stage.show();
+			System.out.println("show");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
