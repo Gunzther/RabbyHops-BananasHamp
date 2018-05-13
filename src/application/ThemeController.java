@@ -29,7 +29,7 @@ public class ThemeController {
 	ImageView backImage;
 	
 	public static Stage stage;
-	public static String mode;
+	public static String mode = "multi";
 	public static boolean mutiSelectStage = false;
 	
 	Image image1 = new Image(this.getClass().getResourceAsStream("/objects/whiteGIF.gif"));

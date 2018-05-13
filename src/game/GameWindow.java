@@ -19,11 +19,31 @@ public class GameWindow extends JFrame {
 			add(gameScreenTeam);
 		}
 		else {
-			gameScreen = new GameScreen();
+			gameScreen = new GameScreen("replay.png");
 			addKeyListener(gameScreen);
 			add(gameScreen);
 		}
-		
+	}
+	
+	public GameWindow(String replay) {
+		super();
+		setSize(SCREEN_WIDTH, 180);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocation(420,450);
+		setResizable(false);
+		if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
+			gameScreen = new GameScreen(replay);
+			addKeyListener(gameScreen);
+			add(gameScreen);
+		}
+	}
+	
+	public void setReplay(String replay) {
+		gameScreen.setReplay(replay);
+	}
+	
+	public boolean getEndGame() {
+		return gameScreen.getEndGame();
 	}
 	
 	public void startGame() {
@@ -35,6 +55,10 @@ public class GameWindow extends JFrame {
 			setVisible(true);
 			gameScreen.startGame();
 		}
+	}
+	
+	public void resetGame() {
+		gameScreen.resetGame();
 	}
 	
 //	public static void main(String[]args) {

@@ -33,8 +33,8 @@
          </image>
       </ImageView>
       <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" opacity="0.0" prefHeight="170.0" prefWidth="85.0" style="-fx-background-color: #f7f7f7;" />
-      <Button fx:id="twoPlayer" layoutX="164.0" layoutY="62.0" mnemonicParsing="false" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
-      <Button fx:id="threePlayer" layoutX="300.0" layoutY="62.0" mnemonicParsing="false" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
-      <Button fx:id="fourPlayer" layoutX="437.0" layoutY="62.0" mnemonicParsing="false" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
+      <Button fx:id="twoPlayer" layoutX="164.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleTwoPlayer" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
+      <Button fx:id="threePlayer" layoutX="300.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleThreePlayer" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
+      <Button fx:id="fourPlayer" layoutX="437.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleFourPlayer" opacity="0.0" prefHeight="90.0" prefWidth="85.0" />
    </children>
 </AnchorPane>

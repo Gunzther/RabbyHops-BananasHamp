@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import gameObstacles.*;
+import serverAndClient.Client;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
@@ -28,6 +29,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	private int timeCheck;
 	
 	private boolean isKeyPressed;
+	private boolean endGame;
 
 	private int gameState = GAME_PLAYING_STATE;
 	//button images
@@ -37,14 +39,19 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static int singleJump;
 	public static int singleDash;
 
-	public GameScreen() { 
+	public GameScreen(String replay) { 
+		endGame = false;
 		timeCheck = 0;
 		rabby = new Rabby(50);
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
 		rabby.setSpeedX(8);
-		replayButtonImage = getResourceImage("replay.png");
+		replayButtonImage = getResourceImage(replay); // set default
 		gameOverButtonImage = getResourceImage("gameover.png");
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
+	}
+
+	public void setReplay(String replay) {
+		replayButtonImage = getResourceImage(replay);
 	}
 
 	public void startGame() {
@@ -136,12 +143,19 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 				}
 				break;
 			case GAME_OVER_STATE:
-				if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-					gameState = GAME_PLAYING_STATE;
-					resetGame();
+				endGame = true;
+				if (!application.ThemeController.mode.equals("multi")) {
+					if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+						gameState = GAME_PLAYING_STATE;
+						resetGame();
+					}
 				}
 			}
 		}
+	}
+	
+	public boolean getEndGame() {
+		return this.endGame;
 	}
 
 	@Override
@@ -159,7 +173,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		// TODO Auto-generated method stub
 	}
 
-	private void resetGame() {
+	public void resetGame() {
 		enemiesManager.reset();
 		rabby.dead(false);
 		rabby.reset();

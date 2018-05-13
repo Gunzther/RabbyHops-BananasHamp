@@ -20,7 +20,7 @@
             <Image url="@../buttons/BackToMode1.png" />
          </image>
       </ImageView>
-      <TextField fx:id="gameID" alignment="CENTER" focusTraversable="false" layoutX="215.0" layoutY="35.0" prefHeight="32.0" prefWidth="256.0" promptText="Game PIN" />
+      <TextField fx:id="gameID" alignment="CENTER" focusTraversable="false" layoutX="192.0" layoutY="35.0" prefHeight="32.0" prefWidth="256.0" promptText="Game PIN" />
       <Label layoutX="335.0" layoutY="76.0" text="or">
          <font>
             <Font size="16.0" />
@@ -28,5 +28,6 @@
       </Label>
       <Button fx:id="back" layoutX="1.0" mnemonicParsing="false" onAction="#handleBack" opacity="0.0" prefHeight="170.0" prefWidth="85.0" style="-fx-background-color: #f7f7f7;" />
       <Button fx:id="createRoom" layoutX="105.0" layoutY="107.0" mnemonicParsing="false" onAction="#handleCreate" opacity="0.0" prefHeight="40.0" prefWidth="476.0" />
+      <Button layoutX="448.0" layoutY="35.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="45.0" text="OK" />
    </children>
 </AnchorPane>

@@ -32,6 +32,7 @@ public class playerNumberController {
 	ImageView fourPlayerImage;
 	
 	public static Stage stage;
+	private int portNumber = 10000;
 	
 	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/backLeft1.png"));
 	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/backLeft2.png"));
@@ -96,4 +97,20 @@ public class playerNumberController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void handleTwoPlayer() {
+		new WaitingHostController(portNumber, 2);
+		portNumber++;
+	}
+	
+	public void handleThreePlayer() {
+		new WaitingHostController(portNumber, 3);
+		portNumber++;
+	}
+	
+	public void handleFourPlayer() {
+		new WaitingHostController(portNumber, 4);
+		portNumber++;
+	}
+	
 }
