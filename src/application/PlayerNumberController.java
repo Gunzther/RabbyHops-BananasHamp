@@ -99,26 +99,28 @@ public class PlayerNumberController {
 	
 	public void handleTwoPlayer() {
 		WaitingHostController.playerNumberPb = 2;
-		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
+		if(MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
 		openWaitingHostScreen();
 	}
 	
 	public void handleThreePlayer() {
-//		new WaitingHostController(portNumber, 3);
+		WaitingHostController.playerNumberPb = 3;
+		if(MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
+		openWaitingHostScreen();
 		
 	}
 	
 	public void handleFourPlayer() {
-//		new WaitingHostController(portNumber, 4);
+		WaitingHostController.playerNumberPb = 4;
+		if(MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
+		openWaitingHostScreen();
 		
 	}
 	
 	public void openWaitingHostScreen() {
 		try {
-			System.out.println("เข้าแล้ว");
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("waitingHostUI.fxml"));
-			System.out.println("root");
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setTitle("Rabby hops - Bananas Hamp");
@@ -129,9 +131,7 @@ public class PlayerNumberController {
 				}
 			});
 			stage.setScene(scene);
-			System.out.println("set scene");
 			stage.show();
-			System.out.println("show");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

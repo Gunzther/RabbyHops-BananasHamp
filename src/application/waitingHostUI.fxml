@@ -19,7 +19,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="399.0" layoutY="27.0" text="PORT: " textFill="#f7f7f7">
+      <Label alignment="CENTER" layoutX="382.0" layoutY="27.0" text="PORT: " textFill="#f7f7f7">
          <font>
             <Font size="32.0" />
          </font>
@@ -29,7 +29,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Label fx:id="portNumberUI" alignment="CENTER" layoutX="502.0" layoutY="27.0" text="11111" textFill="#f7f7f7">
+      <Label fx:id="portNumberUI" alignment="CENTER" layoutX="482.0" layoutY="27.0" text="11111" textFill="#f7f7f7">
          <font>
             <Font size="32.0" />
          </font>

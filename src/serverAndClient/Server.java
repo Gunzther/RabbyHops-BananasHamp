@@ -7,6 +7,7 @@ public class Server extends AbstractServer {
 	
 	private int playerNumber;
 	private int rank;
+	static int number = 1;
 	
 	public Server(int port, int playerNumber) {
 		super(port);
@@ -18,15 +19,19 @@ public class Server extends AbstractServer {
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		if(msg.toString().equals("end")) {
 			rank--;
-			sendToAllClients(new String(String.format("%d", rank)));
+			sendToAllClients(String.format("%d", rank));
 		}
 	}
 	
 	@Override
 	protected void clientConnected(ConnectionToClient client) {
-		playerNumber--;
 		super.clientConnected(client);
-		if(playerNumber == 0) sendToAllClients(new String("ready"));
+		client.setInfo("name", number++);
+		System.out.println(client.getInfo("name") + " connected");
+		playerNumber -= 1;
+		if(playerNumber <= 0) {
+			sendToAllClients(String.format("ready"));
+		}
 	}
 
 	@Override

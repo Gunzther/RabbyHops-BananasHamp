@@ -22,15 +22,21 @@ public class Client extends AbstractClient {
 	protected void handleMessageFromServer(Object msg) {
 		this.messageFromServer = msg.toString();
 		if(messageFromServer.equals("ready")) {
+			System.out.println("ready");
 			main();
 		}
 	}
 	
+	public String getMessageFromServer() {
+		return messageFromServer;
+	}
+
 	public void main() {
-		game.resetGame();
+//		game.resetGame();
 		setdefaultRank(WaitingHostController.playerNumberPb);
 		game.startGame();
-		while(!game.getEndGame()) {
+		try {
+			sendToServer(new String("end"));
 			if(messageFromServer.equals("3")) {
 				game.setReplay("third.png");
 			}
@@ -40,9 +46,6 @@ public class Client extends AbstractClient {
 			if(messageFromServer.equals("1")) {
 				game.setReplay("first.png");
 			}
-		}
-		try {
-			sendToServer(new String("end"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -51,7 +54,6 @@ public class Client extends AbstractClient {
 	@Override
 	protected void connectionEstablished() {
 		super.connectionEstablished();
-		System.out.println("Connected");
 	}
 	
 	private void setdefaultRank(int numberOfPlayer) {

@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import serverAndClient.Client;
 
 public class MultiplayerSelectionController {
 	@FXML
@@ -25,6 +27,8 @@ public class MultiplayerSelectionController {
 	ImageView createRoomImage;
 	@FXML
 	TextField gameID;
+	@FXML
+	TextField port;
 
 	public static Stage stage;
 	public static boolean playerNumberStage = false;
@@ -103,4 +107,13 @@ public class MultiplayerSelectionController {
 		}
 	}
 	
+	public void handleOK() {
+		int portNumber = Integer.parseInt(port.getText());
+		Client client = new Client(gameID.getText(), portNumber);
+		try {
+			client.openConnection();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
 }

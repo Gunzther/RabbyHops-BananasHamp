@@ -23,19 +23,8 @@ public class GameWindow extends JFrame {
 			addKeyListener(gameScreen);
 			add(gameScreen);
 		}
-	}
-	
-	public GameWindow(String replay) {
-		super();
-		setSize(SCREEN_WIDTH, 180);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocation(420,450);
-		setResizable(false);
-		if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
-			gameScreen = new GameScreen(replay);
-			addKeyListener(gameScreen);
-			add(gameScreen);
-		}
+		setVisible(true);
+		System.out.println("set window");
 	}
 	
 	public void setReplay(String replay) {
@@ -48,7 +37,6 @@ public class GameWindow extends JFrame {
 	
 	public void startGame() {
 		if(application.ThemeController.mode.equalsIgnoreCase("team")) {
-			setVisible(true);
 			gameScreenTeam.startGame();
 		}
 		else {
