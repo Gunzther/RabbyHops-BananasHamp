@@ -22,15 +22,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			File soundFile = new File("src/sound/hottoDogu.wav");
-			URL url = soundFile.toURI().toURL();
-			if(url != null) {
-				System.out.println("not null");
-				hottoDogu =  Applet.newAudioClip(url);
-			}
 			initialize();
 			stage = primaryStage;
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
+//			Parent root = (Parent)FXMLLoader.load(getClass().getResource("waitingHostUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Rabby hops - Bananas Hamp");
