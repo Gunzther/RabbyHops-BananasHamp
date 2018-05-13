@@ -23,8 +23,8 @@ public class EnemiesManagerTeam {
 	public EnemiesManagerTeam(Rabby mainCharacter1, Rabby mainCharacter2) {
 		Enemy.targetPos = 380;
 		rand = new Random();
-		bananaJump = Resource.getResourceImage("banana1.png");
-		bananaDash = Resource.getResourceImage("banana2.png");
+		bananaJump = new Resource("banana1.png").getResourceImage();
+		bananaDash = new Resource("banana2.png").getResourceImage();
 		enemies = new ArrayList<Enemy>();
 		this.rabby1 = mainCharacter1;
 		this.rabby2 = mainCharacter2;

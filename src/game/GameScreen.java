@@ -5,14 +5,10 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import gameObstacles.*;
-import serverAndClient.Client;
+import gameObstacles.Resource;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
@@ -45,13 +41,13 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		rabby = new Rabby(50);
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
 		rabby.setSpeedX(8);
-		replayButtonImage = getResourceImage(replay); // set default
-		gameOverButtonImage = getResourceImage("gameover.png");
+		replayButtonImage = new ResourceButtons("replay.png").getResourceImage(); // set default
+		gameOverButtonImage = new ResourceButtons("gameover.png").getResourceImage();
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
 	}
 
 	public void setReplay(String replay) {
-		replayButtonImage = getResourceImage(replay);
+		replayButtonImage = new Resource(replay).getResourceImage();
 	}
 
 	public void startGame() {
@@ -178,16 +174,5 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		rabby.dead(false);
 		rabby.reset();
 		timeCheck = 0;
-	}
-	
-	public BufferedImage getResourceImage(String filename) {
-		String path = String.format("src/buttons/(%s)%s", theme, filename);
-		BufferedImage img = null;
-		try {
-		    img = ImageIO.read(new File(path));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return img;
 	}
 }

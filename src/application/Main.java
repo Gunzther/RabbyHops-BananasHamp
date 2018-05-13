@@ -1,10 +1,7 @@
 package application;
 
-import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.net.URL;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;

@@ -40,11 +40,11 @@ public class Rabby {
 		rabbyBound = new Rectangle();
 		//downloading rabbit images
 		runAnimation = new Animation(90);
-		runAnimation.addFrame(Resource.getResourceImage("run1.png"));
-		runAnimation.addFrame(Resource.getResourceImage("run2.png"));
-		jumping = Resource.getResourceImage("jump.png");
-		dashing = Resource.getResourceImage("dash.png");
-		death = Resource.getResourceImage("stand.png");
+		runAnimation.addFrame(new Resource("run1.png").getResourceImage());
+		runAnimation.addFrame(new Resource("run2.png").getResourceImage());
+		jumping = new Resource("jump.png").getResourceImage();
+		dashing = new Resource("dash.png").getResourceImage();
+		death = new Resource("stand.png").getResourceImage();
 		//downloading sound file
 		try {
 			jumpSound =  Applet.newAudioClip(new URL("file","","src/sound/jump.wav"));

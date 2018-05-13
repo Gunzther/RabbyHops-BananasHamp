@@ -20,7 +20,7 @@ public class Clouds {
 	/** Create 5 positions of clouds.*/
 	public Clouds(int width, Rabby rabby) {
 		this.rabby = rabby;
-		cloud = Resource.getResourceImage("cloud.png");
+		cloud = new Resource("cloud.png").getResourceImage();
 		listCloud = new ArrayList<CloudPosition>();
 		CloudPosition imageCloud = new CloudPosition(0, 20);
 		listCloud.add(imageCloud);

@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import game.GameScreen;
-import game.GameWindow;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,14 +16,14 @@ import javafx.stage.WindowEvent;
 import serverAndClient.*;
 
 public class WaitingHostController {
-//	@FXML
-//	Label ipNumber;
-//	@FXML
-//	Label portNumberUI;
-//	@FXML
-//	Label waitingMassege;
-//	@FXML
-//	Button closeRoom;
+	@FXML
+	Label ipNumber;
+	@FXML
+	Label portNumberUI;
+	@FXML
+	Label waitingMassege;
+	@FXML
+	Button closeRoom;
 	
 	private int portNumber;
 	private int playerNumber;

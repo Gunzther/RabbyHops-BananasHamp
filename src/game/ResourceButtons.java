@@ -1,4 +1,4 @@
-package gameObstacles;
+package game;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -12,12 +12,12 @@ import game.GameScreen;
  * 
  * @author Gunthee Tawewatmongkol
  */
-public class Resource {
+public class ResourceButtons {
 	
 	private BufferedImage img;
 	
-	public Resource(String filename) {
-		String path = String.format("/objects/(%s)%s", GameScreen.theme, filename);
+	public ResourceButtons(String filename) {
+		String path = String.format("/buttons/(%s)%s", GameScreen.theme, filename);
 		try {
 		    img = ImageIO.read(getClass().getResource(path));
 		} catch (IOException e) {
