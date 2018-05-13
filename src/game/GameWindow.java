@@ -18,6 +18,11 @@ public class GameWindow extends JFrame {
 			addKeyListener(gameScreenTeam);
 			add(gameScreenTeam);
 		}
+		if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
+			gameScreen = new GameScreen("second.png");
+			addKeyListener(gameScreen);
+			add(gameScreen);
+		}
 		else {
 			gameScreen = new GameScreen("replay.png");
 			addKeyListener(gameScreen);

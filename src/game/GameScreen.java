@@ -41,7 +41,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		rabby = new Rabby(50);
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
 		rabby.setSpeedX(8);
-		replayButtonImage = new ResourceButtons("replay.png").getResourceImage(); // set default
+		replayButtonImage = new ResourceButtons(replay).getResourceImage(); // set default
 		gameOverButtonImage = new ResourceButtons("gameover.png").getResourceImage();
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
 	}

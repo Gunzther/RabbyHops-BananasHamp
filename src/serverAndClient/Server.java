@@ -20,6 +20,7 @@ public class Server extends AbstractServer {
 		if(msg.toString().equals("end")) {
 			rank--;
 			sendToAllClients(String.format("%d", rank));
+			System.out.println("rank");
 		}
 	}
 	
