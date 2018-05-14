@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import serverAndClient.*;
 
 public class WaitingHostController {
@@ -37,6 +42,7 @@ public class WaitingHostController {
 
 	@FXML
 	public void initialize() {
+		ModeController.waitingStage = true;
 		ip = getHostNumber();
 		ipNumber.setText(ip);
 		portNumberUI.setText(String.format("%d", this.portNumber));
@@ -74,7 +80,24 @@ public class WaitingHostController {
 	
 	public void handleCloseRoom() {
 		serverStop();
-		//back to mode selection
+		PlayerNumberController.stage.close();
+		try {
+			stage = new Stage();
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("modeSelection.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			stage.setTitle("Rabby hops - Bananas Hamp");
+			stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				@Override
+				public void handle(WindowEvent event) {
+					System.exit(0);
+				}
+			});
+			stage.setScene(scene);
+			stage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void handlePlayAgain() {

@@ -22,7 +22,6 @@ public class Main extends Application {
 			initialize();
 			stage = primaryStage;
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
-//			Parent root = (Parent)FXMLLoader.load(getClass().getResource("testUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Rabby hops - Bananas Hamp");

@@ -38,6 +38,7 @@ public class ModeController {
 	ImageView backImage;
 	
 	public static boolean themeStage = false;
+	public static boolean waitingStage = false;
 	
 	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/bigBack1.png"));
 	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/bigBack2.png"));
@@ -89,6 +90,7 @@ public class ModeController {
 		if (HomeController.stage.isShowing()) HomeController.stage.close();
 		else if (themeStage && ThemeController.stage.isShowing()) ThemeController.stage.close();
 		else if (ThemeController.mutiSelectStage && MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
+		else if (waitingStage && WaitingHostController.stage.isShowing()) WaitingHostController.stage.close();
 		try {
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
@@ -127,6 +129,7 @@ public class ModeController {
 		if (HomeController.stage.isShowing()) HomeController.stage.close();
 		else if (themeStage && ThemeController.stage.isShowing()) ThemeController.stage.close();
 		else if (ThemeController.mutiSelectStage && MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
+		else if (waitingStage && WaitingHostController.stage.isShowing()) WaitingHostController.stage.close();
 		try {
 			stage = new Stage();
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("themeUI.fxml"));

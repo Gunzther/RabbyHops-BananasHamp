@@ -34,7 +34,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Button layoutX="18.0" layoutY="118.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="121.0" text="Close this room" />
+      <Button layoutX="18.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleCloseRoom" prefHeight="38.0" prefWidth="121.0" text="Close this room" />
       <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="277.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../buttons/waiting.gif" />

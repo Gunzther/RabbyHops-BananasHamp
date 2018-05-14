@@ -2,6 +2,11 @@ package game;
 
 import javax.swing.JFrame;
 
+/**
+ * Create game window of each mode
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class GameWindow extends JFrame {
 	public static final int SCREEN_WIDTH = 600;
 	private GameScreen gameScreen;
