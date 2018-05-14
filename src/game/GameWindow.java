@@ -2,6 +2,8 @@ package game;
 
 import javax.swing.JFrame;
 
+import application.ThemeController;
+
 /**
  * Create game window of each mode
  * 
@@ -23,7 +25,7 @@ public class GameWindow extends JFrame {
 			addKeyListener(gameScreenTeam);
 			add(gameScreenTeam);
 		}
-		if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
+		else if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
 			gameScreen = new GameScreen("first.png");
 			addKeyListener(gameScreen);
 			add(gameScreen);
@@ -37,28 +39,19 @@ public class GameWindow extends JFrame {
 		System.out.println("set window");
 	}
 	
-	public void setReplay(String replay) {
-		gameScreen.setReplay(replay);
-	}
-	
 	public boolean getEndGame() {
 		return gameScreen.getEndGame();
 	}
 	
 	public void startGame() {
-		if(application.ThemeController.mode.equalsIgnoreCase("team")) {
+		if(ThemeController.mode.equalsIgnoreCase("team")) {
 			gameScreenTeam.startGame();
 		}
-		else {
+		if(ThemeController.mode.equals("multi") || ThemeController.mode.equals("single")) {
 			setVisible(true);
 			gameScreen.startGame();
 		}
 	}
-	
-	public void resetGame() {
-		gameScreen.resetGame();
-	}
-	
 //	public static void main(String[]args) {
 //		(new GameWindow()).startGame();
 //	}

@@ -124,7 +124,7 @@ public class ThemeController {
 				e.printStackTrace();
 			}
 		}
-		else {
+		if(mode.equals("single") || mode.equals("team")) {
 			GameWindow game = new GameWindow();
 			game.startGame();
 		}
@@ -153,7 +153,7 @@ public class ThemeController {
 				e.printStackTrace();
 			}
 		}
-		else {
+		if(mode.equals("single") || mode.equals("team")) {
 			GameWindow game = new GameWindow();
 			game.startGame();
 		}
