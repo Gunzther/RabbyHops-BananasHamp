@@ -7,8 +7,10 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
+import application.ThemeController;
 import gameObstacles.*;
 import gameObstacles.Resource;
+import serverAndClient.Server;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
@@ -68,6 +70,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 					if(rabby.score > score) score = rabby.getScore();
 					gameState = GAME_OVER_STATE;
 					rabby.dead(true);
+					if(ThemeController.mode.equals("multi") && Server.rankPb > 1) Server.rankPb -= 1;
 				}
 			}
 		}
@@ -91,6 +94,12 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 			g.drawString("HI " + (score)/10, 450, 20);
 			if (gameState == GAME_OVER_STATE) {
 				g.drawImage(gameOverButtonImage, 200, 30, null);
+				if(ThemeController.mode.equals("multi")) {
+					if(Server.rankPb == 4) replayButtonImage = new ResourceButtons("fourth.png").getResourceImage();
+					if(Server.rankPb == 3) replayButtonImage = new ResourceButtons("third.png").getResourceImage();
+					if(Server.rankPb == 2) replayButtonImage = new ResourceButtons("second.png").getResourceImage();
+					if(Server.rankPb == 1) replayButtonImage = new ResourceButtons("first.png").getResourceImage();
+				}
 				g.drawImage(replayButtonImage, 283, 60, null);
 			}
 			break;

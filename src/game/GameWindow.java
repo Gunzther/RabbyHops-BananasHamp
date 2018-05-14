@@ -24,7 +24,7 @@ public class GameWindow extends JFrame {
 			add(gameScreenTeam);
 		}
 		if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
-			gameScreen = new GameScreen("second.png");
+			gameScreen = new GameScreen("first.png");
 			addKeyListener(gameScreen);
 			add(gameScreen);
 		}

@@ -8,11 +8,13 @@ public class Server extends AbstractServer {
 	private int playerNumber;
 	private int rank;
 	static int number = 1;
+	public static int rankPb;
 	
 	public Server(int port, int playerNumber) {
 		super(port);
 		this.playerNumber = playerNumber;
 		this.rank = playerNumber;
+		rankPb = playerNumber+1;
 	}
 
 	@Override
