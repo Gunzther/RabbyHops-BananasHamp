@@ -91,7 +91,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 			if(theme.equalsIgnoreCase("b")) g.setColor(Color.WHITE);
 			else g.setColor(Color.BLACK);
 			g.drawString("" + (rabby.score)/10, 530, 20);
-			g.drawString("HI " + (score)/10, 450, 20);
+			if(ThemeController.mode.equals("single")) g.drawString("HI " + (score)/10, 450, 20);
 			if (gameState == GAME_OVER_STATE) {
 				g.drawImage(gameOverButtonImage, 200, 30, null);
 				if(ThemeController.mode.equals("multi")) {
