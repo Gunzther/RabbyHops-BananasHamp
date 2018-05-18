@@ -38,7 +38,7 @@ You can download the game and run it on your IDE or by open jar file
 2. Runs RabbyHopsBananasHamp.jar file. >> Click [here](https://drive.google.com/open?id=1dXeLXxuFR0LmIn9afgVDqQBQJIPGPBGj) to get jar file.
 
 # Demo user
-### Home page
+## Home page
 There are 3 choices.
 - Start >> to choose the mode
 - Setting >> to set the buttons
@@ -46,7 +46,7 @@ There are 3 choices.
 
 ![h1](imageReadMe/01.gif)
 
-### Mode selection
+## Mode selection
 ![h1](imageReadMe/02.gif)
 
 ### Single mode
@@ -83,12 +83,74 @@ In this mode, Player can play with another one in the same computer. They have t
 
 ![h1](imageReadMe/09.gif)
 
-### Theme slection
+## Theme slection
 Player has to choose theme before play every game.
 
 ![h1](imageReadMe/03.gif)
 
 # What we use in this program
+
+## JavaFx
+I used javafx to create the start up menu which contains sort of things such as setting button, mode selection button that players are going to select mode that they want to play. This kind of window is easy to code, if we use javafx combine with the scene builder.
+
+### Basis code
+- Downloading window from .fxml file
+
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			initialize();
+			stage = primaryStage;
+			Parent root = (Parent)FXMLLoader.load(getClass().getResource("homeUI.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("Rabby hops - Bananas Hamp");
+			primaryStage.setScene(scene);
+			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				@Override
+				public void handle(WindowEvent event) {
+					System.exit(0);
+				}
+			});
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+- Event Handler <Mouse Event> interface represents events that occur due to the user interacting with a pointing device 
+(such as a mouse). In this game,It used to present some effect when the cursor entered or exited target.
+
+![h1](imageReadMe/mouse event.gif)
+
+	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode1.png"));
+	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode2.png"));
+	Image image3 = new Image(this.getClass().getResourceAsStream("/buttons/createNewRoom1.png"));
+	Image image4 = new Image(this.getClass().getResourceAsStream("/buttons/createNewRoom2.png"));
+	
+	@FXML
+	public void initialize() {
+		EventHandler<MouseEvent> event1 = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				EventTarget target = event.getTarget();
+				if(target == back) backImage.setImage(image2);
+				else if(target == createRoom) createRoomImage.setImage(image4);
+			}
+		};
+		EventHandler<MouseEvent> event2 = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				EventTarget target = event.getTarget();
+				if(target == back) backImage.setImage(image1);
+				else if(target == createRoom) createRoomImage.setImage(image3);
+			}
+		};
+		back.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		back.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		createRoom.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		createRoom.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+	}
 
 
 
