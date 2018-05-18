@@ -121,8 +121,6 @@ I used javafx to create the start up menu which contains sort of things such as 
 - Event Handler <Mouse Event> interface represents events that occur due to the user interacting with a pointing device 
 (such as a mouse). In this game,It used to present some effect when the cursor entered or exited target.
 
-![h1](imageReadMe/mouse event.gif)
-
 	Image image1 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode1.png"));
 	Image image2 = new Image(this.getClass().getResourceAsStream("/buttons/BackToMode2.png"));
 	Image image3 = new Image(this.getClass().getResourceAsStream("/buttons/createNewRoom1.png"));
