@@ -175,8 +175,32 @@ I used javafx to create the start up menu which contains sort of things such as 
    3. Set background colour by using colour Hex
 		
 			Style = “-fx-background-color: #535353;”
+			
 
+## OCSF
+I used the Object client-server framework(ocsf) which used with multiplayer mode to make connection that player can play with others
+in the different computer.
 
+### What is OCSF?
+OCSF is a Java framework that can be used to develop client-server systems. This framework is called OCSF to reflect the fact that the client-server systems built using this framework will exchange Java objects. It is therefore strongly object-oriented as all the lower-level communication layers are encapsulated inside the framework.
 
+![h1](imageReadMe/OCSF UML.jpg)
+
+### How does it work in this program?
+
+1. When player choose the number of players that they want to join, PlayerNumberController class will send the number of players to 
+WaitingHostController. And then, WaitingHostController will create the window that show game ID amd port number and create new server 
+that bounds the number of clients equals the number of players. Next, create host client(client that are in the same computer with server) and wait for another player join in this server. Every time that creates client, it will creates 1 GameWindow in the client constructor.
+
+![h1](imageReadMe/10.gif)
+
+2. When amount of clients equals number of players, server will send "ready" message to all client and client will call game.start() to start the game.
+
+![h1](imageReadMe/11.gif)
+
+3. When the game is over, that client will sent "gameover" message to server and server send the rank back to that client. The rank will
+show on the game screen.
+
+![h1](imageReadMe/12.gif)
 
 
