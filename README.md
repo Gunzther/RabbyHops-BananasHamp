@@ -54,8 +54,8 @@ After selected the theme, the game will run immediately.
 
 ![h1](imageReadMe/08.gif)
 
-### Mutiplayer mode
-In this mode, player has to connect the internet connection. Player will play with others in
+### Multiplayer mode
+In this mode, player has to connect the internet connection. Player will play with others on
 the different computer.
 
 - Player can input the game ID and port number, if another player already create and open room.
@@ -84,7 +84,7 @@ In this mode, Player can play with another one in the same computer. They have t
 ![h1](imageReadMe/09.gif)
 
 ## Theme slection
-Player has to choose theme before play every game.
+Player has to choose theme before playing every game.
 
 ![h1](imageReadMe/03.gif)
 
