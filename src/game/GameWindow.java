@@ -3,6 +3,7 @@ package game;
 import javax.swing.JFrame;
 
 import application.ThemeController;
+import serverAndClient.Client;
 
 /**
  * Create game window of each mode
@@ -26,7 +27,7 @@ public class GameWindow extends JFrame {
 			add(gameScreenTeam);
 		}
 		else if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
-			gameScreen = new GameScreen("first.png");
+			gameScreen = new GameScreen(setLastRank());
 			addKeyListener(gameScreen);
 			add(gameScreen);
 		}
@@ -36,11 +37,13 @@ public class GameWindow extends JFrame {
 			add(gameScreen);
 		}
 		setVisible(true);
-		System.out.println("set window");
 	}
 	
-	public boolean getEndGame() {
-		return gameScreen.getEndGame();
+	public String setLastRank() {
+		if (Client.rankPb == 2) return "second.png";
+		else if (Client.rankPb == 3) return "third.png";
+		else if (Client.rankPb == 4) return "fourth.png";
+		return "first.png";
 	}
 	
 	public void startGame() {
@@ -52,7 +55,12 @@ public class GameWindow extends JFrame {
 			gameScreen.startGame();
 		}
 	}
-//	public static void main(String[]args) {
-//		(new GameWindow()).startGame();
-//	}
+	
+	public boolean isEnd() {
+		return gameScreen.getEndGame();
+	}
+	
+	public void reset() {
+		gameScreen.resetGame();
+	}
 }

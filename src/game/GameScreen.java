@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 import application.ThemeController;
 import gameObstacles.*;
-import gameObstacles.Resource;
+import serverAndClient.Client;
 import serverAndClient.Server;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
@@ -48,10 +48,6 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
 	}
 
-	public void setReplay(String replay) {
-		replayButtonImage = new Resource(replay).getResourceImage();
-	}
-
 	public void startGame() {
 		thread = new Thread(this);
 		thread.start();
@@ -68,9 +64,9 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 				enemiesManager.update();
 				if (enemiesManager.isCollision()) {
 					if(rabby.score > score) score = rabby.getScore();
-					gameState = GAME_OVER_STATE;
 					rabby.dead(true);
-					if(ThemeController.mode.equals("multi") && Server.rankPb > 1) Server.rankPb -= 1;
+					endGame = true;
+					gameState = GAME_OVER_STATE;
 				}
 			}
 		}
@@ -80,29 +76,23 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		if(theme.equalsIgnoreCase("b")) g.setColor(Color.decode("#535353"));
 		else g.setColor(Color.decode("#f7f7f7"));
 		g.fillRect(0, 0, getWidth(), getHeight());
-
-		switch (gameState) {
-		case GAME_PLAYING_STATE:
-		case GAME_OVER_STATE:
-			clouds.draw(g);
-			land.draw(g);
-			if(timeCheck >= 400) enemiesManager.draw(g);
-			rabby.draw(g);
-			if(theme.equalsIgnoreCase("b")) g.setColor(Color.WHITE);
-			else g.setColor(Color.BLACK);
-			g.drawString("" + (rabby.score)/10, 530, 20);
-			if(ThemeController.mode.equals("single")) g.drawString("HI " + (score)/10, 450, 20);
-			if (gameState == GAME_OVER_STATE) {
-				g.drawImage(gameOverButtonImage, 200, 30, null);
-				if(ThemeController.mode.equals("multi")) {
-					if(Server.rankPb == 4) replayButtonImage = new ResourceButtons("fourth.png").getResourceImage();
-					if(Server.rankPb == 3) replayButtonImage = new ResourceButtons("third.png").getResourceImage();
-					if(Server.rankPb == 2) replayButtonImage = new ResourceButtons("second.png").getResourceImage();
-					if(Server.rankPb == 1) replayButtonImage = new ResourceButtons("first.png").getResourceImage();
-				}
-				g.drawImage(replayButtonImage, 283, 60, null);
+		clouds.draw(g);
+		land.draw(g);
+		if(timeCheck >= 400) enemiesManager.draw(g);
+		rabby.draw(g);
+		if(theme.equalsIgnoreCase("b")) g.setColor(Color.WHITE);
+		else g.setColor(Color.BLACK);
+		g.drawString("" + (rabby.score)/10, 530, 20);
+		if(!ThemeController.mode.equals("multi")) g.drawString("HI " + (score)/10, 450, 20);
+		if (gameState == GAME_OVER_STATE) {
+			g.drawImage(gameOverButtonImage, 200, 30, null);
+			if(ThemeController.mode.equals("multi")) {
+				if(Client.rankPb == 4) replayButtonImage = new ResourceButtons("fourth.png").getResourceImage();
+				if(Client.rankPb == 3) replayButtonImage = new ResourceButtons("third.png").getResourceImage();
+				if(Client.rankPb == 2) replayButtonImage = new ResourceButtons("second.png").getResourceImage();
+				if(Client.rankPb == 1) replayButtonImage = new ResourceButtons("first.png").getResourceImage();
 			}
-			break;
+			g.drawImage(replayButtonImage, 283, 60, null);
 		}
 	}
 
@@ -148,10 +138,8 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 				}
 				break;
 			case GAME_OVER_STATE:
-				endGame = true;
 				if (!application.ThemeController.mode.equals("multi")) {
 					if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-						gameState = GAME_PLAYING_STATE;
 						resetGame();
 					}
 				}
@@ -179,6 +167,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void resetGame() {
+		gameState = GAME_PLAYING_STATE;
 		enemiesManager.reset();
 		rabby.dead(false);
 		rabby.reset();

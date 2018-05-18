@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+
+import game.GameWindow;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
@@ -112,8 +114,6 @@ public class MultiplayerSelectionController {
 		Client client = new Client(gameID.getText(), portNumber);
 		try {
 			client.openConnection();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
+		} catch (IOException ex) {}
 	}
 }

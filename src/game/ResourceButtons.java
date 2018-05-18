@@ -20,9 +20,7 @@ public class ResourceButtons {
 		String path = String.format("/buttons/(%s)%s", GameScreen.theme, filename);
 		try {
 		    img = ImageIO.read(getClass().getResource(path));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException e) {}
 	}
 	
 	public BufferedImage getResourceImage() {

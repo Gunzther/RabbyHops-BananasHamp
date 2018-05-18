@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import game.GameWindow;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,13 +32,12 @@ public class WaitingHostController {
 	private Server server;
 	public static int playerNumberPb;
 	public static Stage stage;
-	public int number = 10000;
+	public static int number = 10000;
 	
 	public WaitingHostController() {
 		this.portNumber = number;
 		this.playerNumber = playerNumberPb;
 		server = new Server(this.portNumber, playerNumberPb);
-		number++;
 	}
 
 	@FXML
@@ -46,7 +46,6 @@ public class WaitingHostController {
 		ip = getHostNumber();
 		ipNumber.setText(ip);
 		portNumberUI.setText(String.format("%d", this.portNumber));
-		if(waitingMassege == null) System.out.println("null");
 		waitingMassege.setText(String.format("GAME FOR [ %d ] PLAYERS", this.playerNumber));
 	}
 	
@@ -101,7 +100,7 @@ public class WaitingHostController {
 	}
 	
 	public void handlePlayAgain() {
-		server.sendToAllClients("ready");
+		server.sendToAllClients(String.format("again"));
 	}
 	
 	public void serverStart(Server server) {
