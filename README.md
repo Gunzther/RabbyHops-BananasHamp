@@ -162,7 +162,19 @@ I used javafx to create the start up menu which contains sort of things such as 
 			createRoom.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 		}
 
-
+- Style which use with .fxml file
+   
+   1. Set background image of window
+		
+		Style = “-fx-background-image: url(‘objects/background.png’);”
+		
+   2. Set background color by using preset order
+		
+		Style = “-fx-background-color: gray;”
+		
+   3. Set background colour by using colour Hex
+		
+		Style = “-fx-background-color: #535353;”
 
 
 
