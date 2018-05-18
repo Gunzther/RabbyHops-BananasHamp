@@ -5,7 +5,7 @@ by Gunthee Tawewatmongkol ID 6010546915
 - [About the program](#about-the-program)
 - [Installation](#installation)
 - [Demo User](#demo-user)
-- [What we use in this program](#what-we-use-in-this-program)
+- [Coding Part](#coding-part)
 
 # About the program
 ### Description
@@ -88,7 +88,19 @@ Player has to choose theme before play every game.
 
 ![h1](imageReadMe/03.gif)
 
-# What we use in this program
+# Coding Part
+## IDE and helper application
+- Eclipse IDE [ Oxygen.1a ] -> http://www.eclipse.org/downloads/packages/release/Oxygen/1A/
+- SceneBuilder -> http://gluonhq.com/products/scene-builder/
+
+## package
+- application >> Contains user interface controller and .fxml file.
+- game >> Contains class that creates game window and manages game graphics.
+- gameObstacles >> Contains all objects class in game.
+- serverAndClient >> Contains server and client class.
+- button >> Contains button images.
+- objects >> Contain object images.
+- sound >> Contani sounds that be used in game.
 
 ## JavaFx
 I used javafx to create the start up menu which contains sort of things such as setting button, mode selection button that players are going to select mode that they want to play. This kind of window is easy to code, if we use javafx combine with the scene builder.
