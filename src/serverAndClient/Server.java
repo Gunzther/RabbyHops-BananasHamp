@@ -17,7 +17,9 @@ public class Server extends AbstractServer {
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		if(msg.toString().equals("end")) {
-			sendToAllClients(String.format("up"));
+			int clientNumber = getNumberOfClients();
+			System.out.println("Client number: "+ clientNumber);
+			sendToAllClients(String.format("%d", clientNumber+1));
 		}
 	}
 	

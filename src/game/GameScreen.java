@@ -10,7 +10,6 @@ import javax.swing.JPanel;
 import application.ThemeController;
 import gameObstacles.*;
 import serverAndClient.Client;
-import serverAndClient.Server;
 
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
