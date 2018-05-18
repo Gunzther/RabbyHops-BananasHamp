@@ -4,6 +4,7 @@ by Gunthee Tawewatmongkol ID 6010546915
 **Contents**
 - [About the program](#about-the-program)
 - [Installation](#installation)
+- [Demo User](#demo-user)
 - [What we use in this program](#what-we-use-in-this-program)
 
 # About the program
@@ -35,9 +36,60 @@ You can download the game and run it on your IDE or by open jar file
 1. Download whole folder >> 
    Click [here](https://github.com/KameriiJ/RabbyHopBananasHamp) to get through the git hup repo.
 2. Runs RabbyHopsBananasHamp.jar file. >> Click [here](https://drive.google.com/open?id=1dXeLXxuFR0LmIn9afgVDqQBQJIPGPBGj) to get jar file.
-    
+
+# Demo user
+### Home page
+There are 3 choices.
+- Start >> to choose the mode
+- Setting >> to set the buttons
+- Credits >> to show credits
+
+![h1](imageReadMe/01.gif)
+
+### Mode selection
+![h1](imageReadMe/02.gif)
+
+### Single mode
+After selected the theme, the game will run immediately.
+
+![h1](imageReadMe/08.gif)
+
+### Mutiplayer mode
+In this mode, player has to connect the internet connection. Player will play with others in
+the different computer.
+
+- Player can input the game ID and port number, if another player already create and open room.
+
+![h1](imageReadMe/04.gif)
+ 
+ 
+- But if player want to play new game, player has to create the new room.
+
+![h1](imageReadMe/05.gif)
+  
+  
+- After clicked 'create new room' button, player has to choose the number of players that they want to play.
+
+![h1](imageReadMe/06.gif)
+
+
+- The next window will show game Id and port number. Press 'open room' button and let another player to join with you.
+
+![h1](imageReadMe/07.gif)
+
+
+### Team mode
+In this mode, Player can play with another one in the same computer. They have to pass the endless obstacles together.
+
+![h1](imageReadMe/09.gif)
+
+### Theme slection
+Player has to choose theme before play every game.
+
+![h1](imageReadMe/03.gif)
+
 # What we use in this program
-(not finish)
+
 
 
 
