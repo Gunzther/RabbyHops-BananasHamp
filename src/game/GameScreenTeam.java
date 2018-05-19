@@ -9,6 +9,11 @@ import javax.swing.JPanel;
 
 import gameObstacles.*;
 
+/**
+ * Create obstatcles. Update game and graphics for team mode.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 	public static String theme;
 	//game's state

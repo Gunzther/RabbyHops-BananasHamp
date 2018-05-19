@@ -10,7 +10,11 @@ import javax.swing.JPanel;
 import application.ThemeController;
 import gameObstacles.*;
 import serverAndClient.Client;
-
+/**
+ * Create obstatcles. Update game and graphics.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class GameScreen extends JPanel implements Runnable, KeyListener {
 	public static String theme;
 	public static int score = 0;
