@@ -8,6 +8,11 @@ import java.awt.image.BufferedImage;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Create rabbit that is the main charater of this game.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class Rabby {
 	public static final int LAND_POSY = 77;
 	public static final float GRAVITY = 0.6f;
