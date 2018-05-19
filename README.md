@@ -83,7 +83,7 @@ In this mode, Player can play with another one in the same computer. They have t
 
 ![h1](imageReadMe/09.gif)
 
-## Theme slection
+## Theme selection
 Player has to choose theme before playing every game.
 
 ![h1](imageReadMe/03.gif)
