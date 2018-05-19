@@ -10,11 +10,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Control window that show credits.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class CreditsController {
 	public static Stage stage;
 	@FXML
 	Button back;
 	
+	/** Set mouse event that make button change color when mouse is entered button. */
 	@FXML
 	public void initialize() {
 		HomeController.creditsStage = true;

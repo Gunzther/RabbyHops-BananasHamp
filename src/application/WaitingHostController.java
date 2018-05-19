@@ -16,6 +16,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import serverAndClient.*;
 
+/**
+ * Control waiting window for multiplayer mode 
+ * and handles events caused by user actions in the UI.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class WaitingHostController {
 	@FXML
 	Label ipNumber;
@@ -40,6 +46,7 @@ public class WaitingHostController {
 		server = new Server(this.portNumber, playerNumberPb);
 	}
 
+	/** Initialize label that show game ID and port number. */
 	@FXML
 	public void initialize() {
 		ModeController.waitingStage = true;
@@ -49,6 +56,7 @@ public class WaitingHostController {
 		waitingMassege.setText(String.format("GAME FOR [ %d ] PLAYERS", this.playerNumber));
 	}
 	
+	/** Get IP address. */
 	public String getHostNumber() {
 		InetAddress address = null;
 		int x = 0;
@@ -67,6 +75,7 @@ public class WaitingHostController {
 		 return ip;
 	}
 	
+	/** Start server and create host Client. */
 	public void handleOpenRoom() {
 		serverStart(server);
 		Client client = new Client(ip, portNumber);
@@ -77,6 +86,7 @@ public class WaitingHostController {
 		}
 	}
 	
+	/** Close server and back to mode selection window. */
 	public void handleCloseRoom() {
 		serverStop();
 		PlayerNumberController.stage.close();

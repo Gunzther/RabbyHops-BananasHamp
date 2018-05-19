@@ -11,6 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 
+/**
+ * Main class to launch the program.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class Main extends Application {
 	
 	public static Stage stage;
@@ -42,6 +47,9 @@ public class Main extends Application {
 		launch(args);
 	}
 	
+	/**
+	 * Set default buttons to playing.
+	 */
 	public void initialize() {
 		game.GameScreen.singleJump = KeyEvent.VK_UP;
 		game.GameScreen.singleDash = KeyEvent.VK_DOWN;

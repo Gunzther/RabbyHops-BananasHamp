@@ -10,6 +10,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Control a starter window, handles events caused by user actions in the UI.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class HomeController {
 	public static Stage stage;
 	public static boolean startStage = false; 

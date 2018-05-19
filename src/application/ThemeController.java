@@ -14,6 +14,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Control theme selection window and handles events caused by user actions in the UI.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class ThemeController {
 	@FXML
 	Button white;
@@ -38,6 +43,7 @@ public class ThemeController {
 	Image image4 = new Image(this.getClass().getResourceAsStream("/buttons/(b)back.png"));
 	Image image5 = new Image(this.getClass().getResourceAsStream("/objects/frame.png"));
 	
+	/** Set mouse event that make Imageview change when mouse is entered buttons. */
 	@FXML
 	public void initialize() {
 		ModeController.themeStage = true;
@@ -80,6 +86,7 @@ public class ThemeController {
 		back.addEventFilter(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
+	/** Back to the mode selection page. */
 	public void handleBack() {
 		ModeController.stage.close();
 		try {
@@ -101,6 +108,9 @@ public class ThemeController {
 		}
 	}
 	
+	/** Set GameScreen theme value to white and start game if mode is single player or team.
+	 * Going to the multiplayer selection window if mode is multiplayer. 
+	 */
 	public void handleWhite() {
 		game.GameScreen.theme = "w";
 		game.GameScreenTeam.theme = "w";
@@ -130,6 +140,9 @@ public class ThemeController {
 		}
 	}
 	
+	/** Set GameScreen theme value to black and start game if mode is single player or team.
+	 * Going to the multiplayer selection window if mode is multiplayer. 
+	 */
 	public void handleBlack() {
 		game.GameScreen.theme = "b";
 		game.GameScreenTeam.theme = "b";

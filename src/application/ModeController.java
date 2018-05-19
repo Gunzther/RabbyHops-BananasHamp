@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 /**
- * Mode selection
+ * Window makes player choose a game mode and handles events caused by user actions in the UI.
  * 
  * @author Gunthee Tawewatmongkol
  */
@@ -85,7 +85,7 @@ public class ModeController {
 		team.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
-	/** Back to the first page */
+	/** Back to the first page. */
 	public void handleBack() {
 		if (HomeController.stage.isShowing()) HomeController.stage.close();
 		else if (themeStage && ThemeController.stage.isShowing()) ThemeController.stage.close();
@@ -110,21 +110,25 @@ public class ModeController {
 		}
 	}
 	
+	/** Change mode to single player mode and go to theme selection page. */
 	public void handleSingle() {
 		ThemeController.mode = "single";
 		createThemeStage();
 	}
 	
+	/** Change mode to multiplayer mode and go to theme selection page. */
 	public void handleMuti() {
 		ThemeController.mode = "multi";
 		createThemeStage();
 	}
 	
+	/** Change mode to team mode and go to theme selection page. */
 	public void handleTeam() {
 		ThemeController.mode = "team";
 		createThemeStage();
 	}
 	
+	/** Create theme choosing window and go to theme selection page. */
 	public void createThemeStage() {
 		if (HomeController.stage.isShowing()) HomeController.stage.close();
 		else if (themeStage && ThemeController.stage.isShowing()) ThemeController.stage.close();

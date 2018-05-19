@@ -13,6 +13,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Control number of players selection page, handles events caused by user actions in the UI.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class PlayerNumberController {
 	@FXML
 	Button back;
@@ -42,6 +47,7 @@ public class PlayerNumberController {
 	Image image7 = new Image(this.getClass().getResourceAsStream("/buttons/4players.png"));
 	Image image8 = new Image(this.getClass().getResourceAsStream("/buttons/4players(o).png"));
 	
+	/** Set mouse event that make Imageview change when mouse is entered buttons. */
 	@FXML
 	public void initialize() {
 		MultiplayerSelectionController.playerNumberStage = true;
@@ -76,6 +82,7 @@ public class PlayerNumberController {
 		fourPlayer.addEventFilter(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
+	/** Back to the multiplayer selection page. */
 	public void handleBack() {
 		MultiplayerSelectionController.stage.close();
 		try {
@@ -97,12 +104,14 @@ public class PlayerNumberController {
 		}
 	}
 	
+	/** Set player number in WaitingHostController to 2 and go to waiting page. */
 	public void handleTwoPlayer() {
 		WaitingHostController.playerNumberPb = 2;
 		if(MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
 		openWaitingHostScreen();
 	}
 	
+	/** Set player number in WaitingHostController to 3 and go to waiting page. */
 	public void handleThreePlayer() {
 		WaitingHostController.playerNumberPb = 3;
 		if(MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
@@ -110,6 +119,7 @@ public class PlayerNumberController {
 		
 	}
 	
+	/** Set player number in WaitingHostController to 4 and go to waiting page. */
 	public void handleFourPlayer() {
 		WaitingHostController.playerNumberPb = 4;
 		if(MultiplayerSelectionController.stage.isShowing()) MultiplayerSelectionController.stage.close();
@@ -117,6 +127,7 @@ public class PlayerNumberController {
 		
 	}
 	
+	/** Downloading waiting page from .fxml file. */
 	public void openWaitingHostScreen() {
 		try {
 			stage = new Stage();

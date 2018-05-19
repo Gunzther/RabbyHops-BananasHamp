@@ -11,6 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Control setting window and handles events caused by user actions in the UI.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class SettingController {
 	public static Stage stage;
 	@FXML
@@ -55,6 +60,7 @@ public class SettingController {
 		}
 	}
 	
+	/** Set play button. */
 	public void setPlayerButton() {
 		boolean sjNotSet = true, sdNotSet = true, pj1NotSet = true, 
 				pd1NotSet = true, pj2NotSet = true, pd2NotSet = true;
@@ -111,6 +117,7 @@ public class SettingController {
 		if (pd2NotSet) game.GameScreenTeam.playerDash2 = pd2.charAt(0);
 	}
 	
+	/** Return the value of key that is the symbol key(up, down, and spacebar). */
 	public int symbolKeyCase(String key) {
 		if(key.equals("UP")) {
 			return KeyEvent.VK_UP;
@@ -121,6 +128,7 @@ public class SettingController {
 		return KeyEvent.VK_SPACE;
 	}
 	
+	/** Set the textfield that get the wrong key value to RED. */
 	public boolean setImpossibleButton() {
 		boolean result = false;
 		if (singleJump.getText().equalsIgnoreCase(singleDash.getText()) && !singleJump.getText().equals("")) {

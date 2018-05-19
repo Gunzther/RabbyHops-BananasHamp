@@ -18,6 +18,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import serverAndClient.Client;
 
+/**
+ * Control multiplayer selection page, handles events caused by user actions in the UI.
+ * 
+ * @author Gunthee Tawewatmongkol
+ */
 public class MultiplayerSelectionController {
 	@FXML
 	Button createRoom;
@@ -40,6 +45,7 @@ public class MultiplayerSelectionController {
 	Image image3 = new Image(this.getClass().getResourceAsStream("/buttons/createNewRoom1.png"));
 	Image image4 = new Image(this.getClass().getResourceAsStream("/buttons/createNewRoom2.png"));
 	
+	/** Set mouse event that make Imageview change when mouse is entered buttons. */
 	@FXML
 	public void initialize() {
 		ThemeController.mutiSelectStage = true;
@@ -65,6 +71,7 @@ public class MultiplayerSelectionController {
 		createRoom.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 	}
 	
+	/** Back to the mode selection page. */
 	public void handleBack() {
 		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
 		else if(playerNumberStage && PlayerNumberController.stage.isShowing()) PlayerNumberController.stage.close();
@@ -87,6 +94,7 @@ public class MultiplayerSelectionController {
 		}
 	}
 	
+	/** Go to number of players selection page. */
 	public void handleCreate() {
 		if(ThemeController.stage.isShowing()) ThemeController.stage.close();
 		else if(playerNumberStage && PlayerNumberController.stage.isShowing()) PlayerNumberController.stage.close();
@@ -109,6 +117,7 @@ public class MultiplayerSelectionController {
 		}
 	}
 	
+	/** Create new Client with game ID and port number in the textfield. */
 	public void handleOK() {
 		int portNumber = Integer.parseInt(port.getText());
 		Client client = new Client(gameID.getText(), portNumber);
