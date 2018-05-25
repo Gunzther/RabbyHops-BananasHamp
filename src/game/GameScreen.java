@@ -33,20 +33,24 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	private boolean endGame;
 
 	private int gameState = GAME_PLAYING_STATE;
+	
+	private Graphics g;
 	//button images
 	private BufferedImage replayButtonImage;
+	private BufferedImage secondButtonImage;
 	private BufferedImage gameOverButtonImage;
 	//player buttons control
 	public static int singleJump;
 	public static int singleDash;
 
-	public GameScreen(String replay) { 
+	public GameScreen() { 
 		endGame = false;
 		timeCheck = 0;
 		rabby = new Rabby(50);
 		land = new Land(GameWindow.SCREEN_WIDTH, rabby);
 		rabby.setSpeedX(8);
-		replayButtonImage = new ResourceButtons(replay).getResourceImage(); // set default
+		replayButtonImage = new ResourceButtons("replay.png").getResourceImage(); // set default
+		secondButtonImage = new ResourceButtons("second.png").getResourceImage();
 		gameOverButtonImage = new ResourceButtons("gameover.png").getResourceImage();
 		clouds = new Clouds(GameWindow.SCREEN_WIDTH, rabby);
 	}
@@ -62,8 +66,8 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 			clouds.update();
 			land.update();
 			rabby.update();
-			if(timeCheck == 400) enemiesManager = new EnemiesManager(rabby);
-			if(timeCheck >= 400) {
+			if(timeCheck == 600) enemiesManager = new EnemiesManager(rabby);
+			if(timeCheck >= 600) {
 				enemiesManager.update();
 				if (enemiesManager.isCollision()) {
 					if(rabby.score > score) score = rabby.getScore();
@@ -76,6 +80,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void paint(Graphics g) {
+		this.g = g;
 		if(theme.equalsIgnoreCase("b")) g.setColor(Color.decode("#535353"));
 		else g.setColor(Color.decode("#f7f7f7"));
 		g.fillRect(0, 0, getWidth(), getHeight());
@@ -89,14 +94,21 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		if(!ThemeController.mode.equals("multi")) g.drawString("HI " + (score)/10, 450, 20);
 		if (gameState == GAME_OVER_STATE) {
 			g.drawImage(gameOverButtonImage, 200, 30, null);
-			if(ThemeController.mode.equals("multi")) {
-				if(Client.rankPb == 4) replayButtonImage = new ResourceButtons("fourth.png").getResourceImage();
-				if(Client.rankPb == 3) replayButtonImage = new ResourceButtons("third.png").getResourceImage();
-				if(Client.rankPb == 2) replayButtonImage = new ResourceButtons("second.png").getResourceImage();
-				if(Client.rankPb == 1) replayButtonImage = new ResourceButtons("first.png").getResourceImage();
+			if(!ThemeController.mode.equals("multi")) {
+				g.drawImage(replayButtonImage, 283, 60, null);
 			}
-			g.drawImage(replayButtonImage, 283, 60, null);
 		}
+	}
+	
+	public void lastPaint() {
+		if(ThemeController.mode.equals("multi")) {
+			if(Client.rankPb == 4) replayButtonImage = new ResourceButtons("fourth.png").getResourceImage();
+			if(Client.rankPb == 3) replayButtonImage = new ResourceButtons("third.png").getResourceImage();
+			if(Client.rankPb == 2) replayButtonImage = new ResourceButtons("second.png").getResourceImage();
+			if(Client.rankPb == 1) replayButtonImage = new ResourceButtons("first.png").getResourceImage();
+			System.out.println("set rank: " + Client.rankPb);
+		}
+		g.drawImage(replayButtonImage, 283, 60, null);
 	}
 
 	@Override
@@ -121,9 +133,7 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 			}
 			try {
 				Thread.sleep(msSleep, nanoSleep);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			} catch (InterruptedException e) {}
 			lastTime = System.nanoTime();
 		}
 	}

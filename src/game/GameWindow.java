@@ -1,9 +1,7 @@
 package game;
 
 import javax.swing.JFrame;
-
 import application.ThemeController;
-import serverAndClient.Client;
 
 /**
  * Create game window of each mode
@@ -26,24 +24,16 @@ public class GameWindow extends JFrame {
 			addKeyListener(gameScreenTeam);
 			add(gameScreenTeam);
 		}
-		else if(application.ThemeController.mode.equalsIgnoreCase("multi")) {
-			gameScreen = new GameScreen(setLastRank());
-			addKeyListener(gameScreen);
-			add(gameScreen);
-		}
 		else {
-			gameScreen = new GameScreen("replay.png");
+			gameScreen = new GameScreen();
 			addKeyListener(gameScreen);
 			add(gameScreen);
 		}
 		setVisible(true);
 	}
 	
-	public String setLastRank() {
-		if (Client.rankPb == 2) return "second.png";
-		else if (Client.rankPb == 3) return "third.png";
-		else if (Client.rankPb == 4) return "fourth.png";
-		return "first.png";
+	public void setRank() {
+		this.gameScreen.lastPaint();
 	}
 	
 	public void startGame() {
