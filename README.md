@@ -187,7 +187,7 @@ in the different computer.
 ### What is OCSF?
 OCSF is a Java framework that can be used to develop client-server systems. This framework is called OCSF to reflect the fact that the client-server systems built using this framework will exchange Java objects. It is therefore strongly object-oriented as all the lower-level communication layers are encapsulated inside the framework.
 
-![h1](imageReadMe/OCSF UML.jpg)
+![h1](imageReadMe/OCSF-UML.jpg)
 
 ### How does it work in this program?
 
