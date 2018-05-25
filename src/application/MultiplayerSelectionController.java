@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import game.GameWindow;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;

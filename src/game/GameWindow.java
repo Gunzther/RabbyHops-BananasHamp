@@ -33,7 +33,7 @@ public class GameWindow extends JFrame {
 	}
 	
 	public void setRank() {
-		this.gameScreen.lastPaint();
+		this.gameScreen.sent = true;
 	}
 	
 	public void startGame() {

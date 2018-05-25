@@ -8,12 +8,10 @@ import com.lloseng.ocsf.server.ConnectionToClient;
 public class Server extends AbstractServer {
 	
 	private int playerNumber;
-	private int num;
 	
 	public Server(int port, int playerNumber) {
 		super(port);
 		this.playerNumber = playerNumber;
-		this.num = playerNumber;
 	}
 
 	@Override
@@ -31,7 +29,6 @@ public class Server extends AbstractServer {
 		super.clientConnected(client);
 		playerNumber -= 1;
 		if(playerNumber <= 0) {
-//			sendToAllClients(String.format("%d", this.num));
 			sendToAllClients(String.format("ready"));
 		}
 	}

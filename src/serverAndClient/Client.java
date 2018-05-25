@@ -25,16 +25,13 @@ public class Client extends AbstractClient {
 		if(messageFromServer.equals("ready")) {
 			this.game.startGame();
 			try {
-				while(!this.game.isEnd()) {
-					System.out.println("not end");
+				while(true) {
+					System.out.println("playing");
 					if(game.isEnd()) {
-						System.out.println("end: " + game.isEnd());
 						sendToServer(String.format("end"));
-						System.out.println("sent end");
 						break;
 					}
 				}
-				System.out.println("done");
 			} catch (IOException e) {}
 		}
 		if(messageFromServer.equals("4")) {
@@ -70,20 +67,4 @@ public class Client extends AbstractClient {
 	public GameWindow getGame() {
 		return this.game;
 	}
-	
-//	public void tellServerToUpdateRank() {
-//		try {
-//			while(this.game.isActive()) {
-//				System.out.println("boolean end: "+game.isEnd());
-//				if(game.isEnd() == true) break;
-//			}
-//			System.out.println("end: "+game.isEnd());
-//			if(game.isEnd()) {
-//				sendToServer(String.format("end"));
-//				System.out.println("sent end");
-//				this.connectionClosed();
-//			}
-//			System.out.println("done");
-//		} catch (IOException e) {}
-//	}
 }
