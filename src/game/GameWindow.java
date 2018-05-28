@@ -50,6 +50,11 @@ public class GameWindow extends JFrame {
 		return gameScreen.getEndGame();
 	}
 	
+	public void closeWindow() {
+		this.gameScreen.stop();
+		this.dispose();
+	}
+	
 	public void reset() {
 		gameScreen.resetGame();
 	}

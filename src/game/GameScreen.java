@@ -59,6 +59,16 @@ public class GameScreen extends JPanel implements Runnable, KeyListener {
 		thread = new Thread(this);
 		thread.start();
 	}
+	
+	public synchronized void stop() {
+		if (endGame) return;
+		endGame = true;
+		try {
+			thread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void gameUpdate() {
 		timeCheck++;

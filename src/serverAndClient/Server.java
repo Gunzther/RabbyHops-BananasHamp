@@ -8,18 +8,20 @@ import com.lloseng.ocsf.server.ConnectionToClient;
 public class Server extends AbstractServer {
 	
 	private int playerNumber;
+	private int rank;
 	
 	public Server(int port, int playerNumber) {
 		super(port);
 		this.playerNumber = playerNumber;
+		this.rank = playerNumber;
 	}
 
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		if(msg.toString().equals("end")) {
-			int clientNumber = getNumberOfClients();
 			try {
-				client.sendToClient(String.format("%d", clientNumber));
+				client.sendToClient(String.format("%d", this.rank));
+				rank--;
 			} catch (IOException e) {}
 		}
 	}

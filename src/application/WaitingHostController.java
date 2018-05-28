@@ -122,6 +122,7 @@ public class WaitingHostController {
 	
 	public void serverStop() {
 		//client sent to server to close all game
+		server.sendToAllClients(String.format("close"));
 		this.server.stopListening();
 		try {
 			this.server.close();
