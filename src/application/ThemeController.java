@@ -1,7 +1,6 @@
 package application;
 
 import game.GameWindow;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
