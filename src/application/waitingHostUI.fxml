@@ -34,12 +34,22 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Button layoutX="18.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleCloseRoom" prefHeight="38.0" prefWidth="121.0" text="Close this room" />
+      <ImageView fx:id="closeRoomImg" fitHeight="31.0" fitWidth="151.0" layoutX="31.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/closeRoom1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="closeRoom" layoutX="31.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleCloseRoom" opacity="0.0" prefHeight="30.0" prefWidth="151.0" />
+      <ImageView fx:id="openRoomImg" fitHeight="31.0" fitWidth="144.0" layoutX="434.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../buttons/openRoom1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="openRoom" layoutX="434.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleOpenRoom" opacity="0.0" prefHeight="30.0" prefWidth="142.0" />
       <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="277.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../buttons/waiting.gif" />
          </image>
       </ImageView>
-      <Button layoutX="475.0" layoutY="117.0" mnemonicParsing="false" onAction="#handleOpenRoom" prefHeight="38.0" prefWidth="94.0" text="Open Room" />
    </children>
 </AnchorPane>

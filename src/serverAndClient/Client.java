@@ -38,22 +38,18 @@ public class Client extends AbstractClient {
 		if(messageFromServer.equals("4")) {
 			rankPb = 4;
 			this.game.setRank();
-//			try { this.closeConnection(); } catch (IOException e) {}
 		}
 		if(messageFromServer.equals("3")) {
 			rankPb = 3;
 			this.game.setRank();
-//			try { this.closeConnection(); } catch (IOException e) {}
 		}
 		if(messageFromServer.equals("2")) {
 			rankPb = 2;
 			this.game.setRank();
-//			try { this.closeConnection(); } catch (IOException e) {}
 		}
 		if(messageFromServer.equals("1")) {
 			rankPb = 1;
 			this.game.setRank();
-//			try { this.closeConnection(); } catch (IOException e) {}
 		}
 		if(messageFromServer.equals("again")) {
 			this.game.reset();

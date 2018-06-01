@@ -8,11 +8,13 @@ import com.lloseng.ocsf.server.ConnectionToClient;
 public class Server extends AbstractServer {
 	
 	private int playerNumber;
+	private int clientNumber;
 	private int rank;
 	
 	public Server(int port, int playerNumber) {
 		super(port);
 		this.playerNumber = playerNumber;
+		this.clientNumber = playerNumber;
 		this.rank = playerNumber;
 	}
 
@@ -38,5 +40,9 @@ public class Server extends AbstractServer {
 	@Override
 	protected void serverStarted() {
 		super.serverStarted();
+	}
+	
+	public void resetRank() {
+		this.rank = clientNumber;
 	}
 }
