@@ -51,5 +51,11 @@
             <Image url="@../buttons/waiting.gif" />
          </image>
       </ImageView>
+      <Button disable="true" layoutX="340.0" layoutY="126.0" mnemonicParsing="false" text="Play again" />
+      <Label layoutX="341.0" layoutY="153.0" text="(Comming soon)" textFill="#ffa9a9">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
