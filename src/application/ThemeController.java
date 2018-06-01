@@ -1,6 +1,7 @@
 package application;
 
 import game.GameWindow;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.fxml.FXML;
@@ -36,6 +37,7 @@ public class ThemeController {
 	public static Stage stage;
 	public static String mode = "multi";
 	public static boolean mutiSelectStage = false;
+	private GameWindow myGame;
 	
 	Image image1 = new Image(this.getClass().getResourceAsStream("/objects/whiteGIF.gif"));
 	Image image2 = new Image(this.getClass().getResourceAsStream("/objects/blackGIF.gif"));
@@ -77,13 +79,22 @@ public class ThemeController {
 				else if (target == back) backImage.setImage(image3);
 			}
 		};
+		EventHandler<MouseEvent> event3 = new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if(myGame != null && !myGame.isShowing()) setEnableButton();
+			}
+		};
+		
 		black.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
 		white.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
-		back.addEventFilter(MouseEvent.MOUSE_ENTERED_TARGET, event1);
+		back.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
 		
 		black.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 		white.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
-		back.addEventFilter(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		back.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		
+		ModeController.stage.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event3);
 	}
 	
 	/** Back to the mode selection page. */
@@ -114,8 +125,8 @@ public class ThemeController {
 	public void handleWhite() {
 		game.GameScreen.theme = "w";
 		game.GameScreenTeam.theme = "w";
+		setDisableButton();
 		if(mode.equalsIgnoreCase("multi")) {
-			ModeController.stage.close();
 			try {
 				stage = new Stage();
 				Parent root = (Parent)FXMLLoader.load(getClass().getResource("multiplayerSelectionUI.fxml"));
@@ -135,8 +146,8 @@ public class ThemeController {
 			}
 		}
 		if(mode.equals("single") || mode.equals("team")) {
-			GameWindow game = new GameWindow();
-			game.startGame();
+			myGame = new GameWindow();
+			myGame.startGame();
 		}
 	}
 	
@@ -146,8 +157,8 @@ public class ThemeController {
 	public void handleBlack() {
 		game.GameScreen.theme = "b";
 		game.GameScreenTeam.theme = "b";
+		setDisableButton();
 		if(mode.equalsIgnoreCase("multi")) {
-			ModeController.stage.close();
 			try {
 				stage = new Stage();
 				Parent root = (Parent)FXMLLoader.load(getClass().getResource("multiplayerSelectionUI.fxml"));
@@ -167,8 +178,20 @@ public class ThemeController {
 			}
 		}
 		if(mode.equals("single") || mode.equals("team")) {
-			GameWindow game = new GameWindow();
-			game.startGame();
+			myGame = new GameWindow();
+			myGame.startGame();
 		}
+	}
+	
+	public void setDisableButton() {
+		white.setDisable(true);
+		back.setDisable(true);
+		black.setDisable(true);
+	}
+	
+	public void setEnableButton() {
+		white.setDisable(false);
+		back.setDisable(false);
+		black.setDisable(false);
 	}
 }
