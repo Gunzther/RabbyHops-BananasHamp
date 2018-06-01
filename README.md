@@ -37,6 +37,8 @@ You can download the game and run it on your IDE or by open jar file
    Click [here](https://github.com/KameriiJ/RabbyHopBananasHamp) to get through the git hup repo.
 2. Runs RabbyHopsBananasHamp.jar file. >> Click [here](https://github.com/KameriiJ/RabbyHopBananasHamp/raw/master/RabbyHopsBananasHamp.jar) to get jar file[version 1.1.2].
 
+**If you run on IOS ,RabbyHopsBananasHamp.jar file will not be opened because it is from an unidentified developer.You have to go to 'System Preferences >> Security & Privacy >> Open Anyway' to unblock and open .jar file.
+
 # Demo user
 ## Home page
 There are 3 choices.
