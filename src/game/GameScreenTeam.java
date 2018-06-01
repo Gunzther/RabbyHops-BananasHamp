@@ -40,7 +40,6 @@ public class GameScreenTeam extends JPanel implements Runnable, KeyListener {
 	public static int playerDash2;
 
 	public GameScreenTeam() {
-		System.out.println("team");
 		timeCheck = 0;
 		rabby1 = new Rabby(50);
 		rabby2 = new Rabby(290);

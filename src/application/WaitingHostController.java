@@ -63,6 +63,7 @@ public class WaitingHostController {
 	/** Initialize label that show game ID and port number. */
 	@FXML
 	public void initialize() {
+		openRoom.setDisable(false);
 		EventHandler<MouseEvent> event1 = new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -80,9 +81,9 @@ public class WaitingHostController {
 			}
 		};
 		openRoom.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
-		openRoom.addEventFilter(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		openRoom.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 		closeRoom.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, event1);
-		closeRoom.addEventFilter(MouseEvent.MOUSE_EXITED_TARGET, event2);
+		closeRoom.addEventHandler(MouseEvent.MOUSE_EXITED_TARGET, event2);
 		
 		ModeController.waitingStage = true;
 		ip = getHostNumber();
@@ -112,6 +113,7 @@ public class WaitingHostController {
 	
 	/** Start server and create host Client. */
 	public void handleOpenRoom() {
+		openRoom.setDisable(true);
 		serverStart(server);
 		Client client = new Client(ip, portNumber);
 		try {
