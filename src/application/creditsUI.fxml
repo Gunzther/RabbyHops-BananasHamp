@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="600.0" style="-fx-background-image: url('objects/creditsBG.png');" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CreditsController">
    <children>
-      <Label layoutX="37.0" layoutY="83.0" text="Version: 1.1.1" textFill="#f7f7f7">
+      <Label layoutX="38.0" layoutY="83.0" text="Version: 1.1.2" textFill="#f7f7f7">
          <font>
             <Font size="16.0" />
          </font>
